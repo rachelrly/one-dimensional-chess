@@ -1,0 +1,11 @@
+header{
+    display: flex;
+    height: (--square);
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacer-med);
+
+    color: var(--white);
+
+}
