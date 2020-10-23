@@ -65,11 +65,11 @@ section{
     font-size: var(--square);
 }
 
-.white{
-    color: var(--accent-dark);
+.one{
+    color: var(--accent-light);
 }
 
-.black{
+.two{
     color: var(--accent-dark);
 }
 

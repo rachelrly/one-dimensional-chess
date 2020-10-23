@@ -3,7 +3,7 @@ import { GiChessKnight } from 'react-icons/gi'
 
 function Knight(props) {
 
-    const classTeam = props.team === 'white' ? 'piece white' : 'piece black';
+    const classTeam = props.team === 'one' ? 'piece one' : 'piece two';
     return (
         <div className='piece_wrapper'>
             <GiChessKnight className={classTeam} />

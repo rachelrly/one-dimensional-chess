@@ -3,7 +3,7 @@ import { GiQueenCrown } from 'react-icons/gi'
 
 function Queen(props) {
 
-    const classTeam = props.team === 'white' ? 'piece white' : 'piece black';
+    const classTeam = props.team === 'one' ? 'piece one' : 'piece two';
     return (
         <div className='piece_wrapper'>
             <GiQueenCrown className={classTeam} />

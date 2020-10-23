@@ -3,7 +3,7 @@ import { GiChessRook } from 'react-icons/gi'
 
 function Rook(props) {
 
-    const classTeam = props.team === 'white' ? 'piece white rook' : 'piece black rook';
+    const classTeam = props.team === 'one' ? 'piece one rook' : 'piece two rook';
     return (
         <div className='piece_wrapper'>
             <GiChessRook className={classTeam} />

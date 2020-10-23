@@ -2,9 +2,12 @@ import React from 'react';
 import { GiChessKing } from 'react-icons/gi';
 
 function King(props) {
-    const classTeam = props.team === 'white' ? 'piece white' : 'piece black';
+    const classTeam = props.team === 'one' ? 'piece one' : 'piece two';
+
     return (
-        <div className='piece_wrapper'>
+        <div
+            className='piece_wrapper'
+        >
             <GiChessKing className={classTeam} />
         </div>
     )
