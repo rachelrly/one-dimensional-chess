@@ -88,3 +88,8 @@ section{
 .two.active{
     outline: 3px solid var(--accent-dark);
 }
+
+.active{
+    outline:3px solid red;
+    z-index: 4;
+}
