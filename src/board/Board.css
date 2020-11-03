@@ -74,9 +74,17 @@ section{
 }
 
 .bishop{
-    font-size: calc(var(--square) - var(--spacer-sm))
+    font-size: calc(var(--square) - var(--spacer-sm));
 }
 .rook{
     align-self: calc(var(--square) - 6px);
     padding: 2px;
+}
+
+.one.active{
+    outline: 3px solid var(--accent-light);
+}
+
+.two.active{
+    outline: 3px solid var(--accent-dark);
 }

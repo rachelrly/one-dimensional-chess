@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function Piece(props) {
-
-    const classTeam = props.team === 'one' ? `piece one ${props.style}` : `piece two  ${props.style}`;
+    const active = true;
+    //use effect to determine if piece is active
+    const classTeam = props.team === 'one' ? `piece one ${props.styleClass} ${active}` : `piece two  ${props.styleClass} ${active}`;
 
     return (
         <div className='piece_wrapper'>
@@ -13,7 +14,7 @@ function Piece(props) {
 }
 
 Piece.defaultProps = {
-    style: null,
+    style: 'null',
 };
 
 export default Piece;
