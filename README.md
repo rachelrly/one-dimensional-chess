@@ -26,7 +26,7 @@ White King, Queen, Rook, Bishop, Bishop, Knight, Pawn, four empty squares, Black
 
 > The inventor thinks that white can force a win.
 
-from [thechessvariants.com]('https://www.chessvariants.com/shape.dir/onedim.html)
+from [The Chess Variants](https://www.chessvariants.com/shape.dir/onedim.html)
 
 ## Available Scripts
 
