@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function Piece(props) {
     const active = true;
-    //use effect to determine if piece is active
+
     const classTeam = props.team === 'one' ? `piece one ${props.styleClass} ${active}` : `piece two  ${props.styleClass} ${active}`;
 
     return (
