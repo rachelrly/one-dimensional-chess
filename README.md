@@ -6,7 +6,7 @@ This version of one-dimensional chess uses Glimne's rules.
 
 ### Opening Setup
 
-> White King, Queen, Rook, Bishop, Bishop, Knight, Pawn, four empty squares, Black Pawn, Knight, Bishop, Bishop, Rook, Queen, King
+White King, Queen, Rook, Bishop, Bishop, Knight, Pawn, four empty squares, Black Pawn, Knight, Bishop, Bishop, Rook, Queen, King
 
 ### The Rules
 
@@ -26,7 +26,7 @@ This version of one-dimensional chess uses Glimne's rules.
 
 > The inventor thinks that white can force a win.
 
-from [The Chess Variant]('https://www.chessvariants.com/shape.dir/onedim.html)
+- from [thechessvariant.com]('https://www.chessvariants.com/shape.dir/onedim.html)
 
 ## Available Scripts
 
