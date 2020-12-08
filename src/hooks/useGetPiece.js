@@ -1,14 +1,12 @@
-//import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { GiChessKing, GiChessPawn, GiQueenCrown, GiChessRook, GiChessKnight } from 'react-icons/gi';
 import { FaChessBishop } from 'react-icons/fa';
-import Piece from './Piece'
+import Piece from '../components/board/Piece'
 
 function useGetPiece(id, board) {
 
-    //get board fromm context rather than passing in
-
-
     let piece = {};
+
     if (board.find(pos => pos.pos === id)) {
 
         piece = board.find(pos => pos.pos === id);

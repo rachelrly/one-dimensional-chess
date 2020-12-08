@@ -1,14 +1,14 @@
 import React from 'react'
-import useGetPiece from './useGetPiece'
+import useGetPiece from '../../hooks/useGetPiece'
 
 function Square(props) {
-    console.log('board from square', props.board)
+    const piece = useGetPiece(props.id, props.board)
     return (
         <div
-            onClick={() => props.setActive()}
+            onClick={() => piece ? props.setActive() : null}
             className={`${props.active === props.id ? 'active' : null} square`}
             id={props.id}>
-            {useGetPiece(props.id, props.board)}
+            {piece}
         </div>
     )
 }
