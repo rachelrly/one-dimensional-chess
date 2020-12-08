@@ -15,16 +15,16 @@ main{
 section{
     display: flex;
     height: 100%;
+    width: inherit;
     justify-content: center;
     align-items: center;
+    padding: var(--spacer-lg);
 }
 
 .board{
-
-    width: inherit;
+    width: var(--square);
     display: grid;
     grid-auto-columns: 1fr;
-    
 }
 .board>*:first-child {
     grid-row: 1 / 1;

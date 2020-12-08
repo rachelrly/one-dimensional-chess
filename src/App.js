@@ -1,14 +1,25 @@
-import React from 'react';
-import Board from './board/Board';
-import Header from './header/Header';
+import React, { useState } from 'react';
+import Board from './components/board/Board';
+import Header from './components/header/Header';
 
-import './globals.css';
+import './css/globals.css';
+import './css/main.css';
 
 function App() {
+  const [playing, setPlaying] = useState(false)
   return (
     <main className="App">
-      <Header />
-      <Board />
+
+      {playing
+        ? <Board />
+        : <div className='landing-page-wrapper'>
+          <Header />
+          <div className='play-button-wrapper'>
+            <button onClick={() => { setPlaying(!playing) }}>Play</button>
+          </div>
+        </div>
+      }
+
     </main>
   );
 }

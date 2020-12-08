@@ -6,6 +6,13 @@ header{
     align-items: center;
     padding: var(--spacer-med);
 
-    color: var(--white);
+    color: var(--colors-light-grey);
 
+}
+
+.play-button-wrapper{
+    display: flex;
+    width: inherit; 
+    justify-content: center;
+    align-items: center;
 }
