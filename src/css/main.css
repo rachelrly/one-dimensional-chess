@@ -26,6 +26,7 @@ main{
     justify-content: flex-start;
     align-items: center;
     font-family: var(--font);
+    
 }
 
 footer{
@@ -70,12 +71,12 @@ button:focus{
 
 section{
     display: flex;
+    width: 100%;
     flex-direction: column;
-    width: inherit;
     padding: var(--spacer-med);
     justify-content: center;
     align-items: center;
-    height: inherit;
+    height: 70vh;
     color: var(--colors-black);
 }
 

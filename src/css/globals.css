@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
 :root{
     --dark-gray: #424242;
     --colors-light-grey: #f5f5f5;
@@ -10,11 +12,13 @@
 
     --spacer-sm: 0.8rem;
     --spacer-med: 1rem;
+
+    --font: 'Playfair Display', serif;
 }
 
 @media all and (max-width: 450px){
     :root{
-        --square: 60px;
+        --square: 50px;
         --spacer-sm: 0.9rem;
         
     }
@@ -23,14 +27,14 @@
 
 @media all and (min-width: 450px){
     :root{
-        --square: 80px;
+        --square: calc(100vw / 20);
     }
 
 }
 
 @media all and (min-width: 700px){
     :root{
-        --square: 120px;
+        --square: calc(100vw / 20);
         --spacer-med: 1.2rem;
     }
 }
