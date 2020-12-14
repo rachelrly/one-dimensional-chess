@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 function Piece(props) {
+    //piece.pos
+    //piece.piece
     return (
         <div className='piece_wrapper'>
             <props.icon

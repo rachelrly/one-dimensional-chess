@@ -1,59 +1,59 @@
 [
     {
         "piece": "king_one",
-        "pos": "s1"
+        "pos": 1
     },
     {
         "piece": "queen_one",
-        "pos": "s2"
+        "pos": 2
 
     },
     {
         "piece": "rook_one",
-        "pos": "s3"
+        "pos": 3
     },
     {
         "piece": "bishop_one_1",
-        "pos": "s4"
+        "pos": 4
     },
     {
         "piece": "bishop_one_2",
-        "pos": "s5"
+        "pos": 5
     },
     {
         "piece": "knight_one",
-        "pos": "s6"
+        "pos": 6
     },
     {
         "piece": "pawn_one",
-        "pos": "s7"
+        "pos": 7
     },
     {
         "piece": "pawn_two",
-        "pos": "s12"
+        "pos": 12
     },
     {
         "piece": "knight_two",
-        "pos": "s13"
+        "pos": 13
     },
     {
         "piece": "bishop_two_2",
-        "pos": "s14"
+        "pos": 14
     },
     {
         "piece": "bishop_two_1",
-        "pos": "s15"
+        "pos": 15
     },
     {
         "piece": "rook_two",
-        "pos": "s16"
+        "pos": 16
     },
     {
         "piece": "queen_two",
-        "pos": "s17"
+        "pos": 17
     },
     {
         "piece": "king_two",
-        "pos": "s18"
+        "pos": 18
     }
     ]

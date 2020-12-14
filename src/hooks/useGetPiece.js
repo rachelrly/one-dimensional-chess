@@ -4,6 +4,7 @@ import { FaChessBishop } from 'react-icons/fa';
 import Piece from '../components/board/Piece'
 
 function useGetPiece(id, board) {
+    /*This component returns the piece at given board position*/
 
     let piece = {};
 

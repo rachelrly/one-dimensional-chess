@@ -1,9 +1,12 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useState } from 'react';
+import startingBoard from './starting-board.json';
 
-const initialState = {};
+const initialState = {board: startingBoard};
+
 const store = createContext(initialState);
 const { Provider } = store;
 
+//state needs board and selected
 const StateProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {
@@ -16,7 +19,7 @@ const StateProvider = ({ children }) => {
         };
     }, initialState);
 
-    return <Provider value={{ state, dispatch }}>{children}</Provider>
+    return <Provider value={{ state, dispatch}}>{children}</Provider>
 };
 
 export { store, StateProvider }

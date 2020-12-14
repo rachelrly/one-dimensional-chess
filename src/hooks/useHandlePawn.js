@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-function useHandlePawn() {
+function useHandlePawn(piece) {
     const [touched, setTouched] = useState(false);
 
+    if(!touched){
+
+    }
 
 
 

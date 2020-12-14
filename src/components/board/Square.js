@@ -6,7 +6,7 @@ function Square(props) {
     return (
         <div
             onClick={() => piece ? props.setActive() : null}
-            className={`${props.active === props.id ? 'active' : null} square`}
+            className={`${props.active.find(p => props.id === p) ? 'active' : null} square`}
             id={props.id}>
             {piece}
         </div>
