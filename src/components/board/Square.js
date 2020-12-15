@@ -1,16 +1,20 @@
-import React from 'react'
-import useGetPiece from '../../hooks/useGetPiece'
+import React, {useContext} from 'react';
+import useGetPiece from '../../hooks/useGetPiece';
+import {store} from '../../store';
+
 
 function Square(props) {
-    const piece = useGetPiece(props.id, props.board)
+    const piece = useGetPiece(props.id, props.board);
+    const {state} = useContext(store);
+  
     return (
         <div
-            onClick={() => piece ? props.setActive() : null}
-            className={`${props.active.find(p => props.id === p) ? 'active' : null} square`}
+            onClick={() => piece && state.team === piece.team ? props.setActive() : null}
+            className={`${state.active === props.id ? 'active' : null} square`}
             id={props.id}>
             {piece}
         </div>
-    )
-}
+    );
+};
 
-export default Square
+export default Square;

@@ -1,59 +1,145 @@
 [
     {
-        "piece": "king_one",
-        "pos": 1
+        "pos": 1,
+        "currentPiece": {
+            "id": 1,
+            "name": "king_one",
+            "piece": "king",
+            "team": "one"
+        }
     },
     {
-        "piece": "queen_one",
-        "pos": 2
+        "pos": 2,
+        "currentPiece": {
+            "id": 2,
+            "name": "queen_one",
+            "piece": "queen",
+            "team": "one"
+        }
 
     },
     {
-        "piece": "rook_one",
-        "pos": 3
+        "pos": 3,
+        "currentPiece": {
+            "id": 3,
+            "name": "rook_one",
+            "piece": "rook",
+            "team": "one"
+        }
     },
     {
-        "piece": "bishop_one_1",
-        "pos": 4
+        "pos": 4,
+        "currentPiece": {
+            "id": 4,
+            "name": "bishop_one_1",
+            "piece": "bishop",
+            "team": "one"
+        }
     },
     {
-        "piece": "bishop_one_2",
-        "pos": 5
+        "pos": 5,
+        "currentPiece": {
+            "id": 5,
+            "name": "bishop_one_2",
+            "piece": "bishop",
+            "team": "one"
+        }
     },
     {
-        "piece": "knight_one",
-        "pos": 6
+        "pos": 6,
+        "currentPiece": {
+            "id": 6,
+            "name": "knight_one",
+            "piece": "knight",
+            "team": "one"
+        }
     },
     {
-        "piece": "pawn_one",
-        "pos": 7
+        "pos": 7,
+        "currentPiece": {
+            "id": 7,
+            "name": "pawn_one",
+            "piece": "pawn",
+            "team": "one"
+        }
     },
     {
-        "piece": "pawn_two",
-        "pos": 12
+        "pos": 8,
+        "currentPiece": null
     },
     {
-        "piece": "knight_two",
-        "pos": 13
+        "pos": 9,
+        "currentPiece": null
     },
     {
-        "piece": "bishop_two_2",
-        "pos": 14
+        "pos": 10,
+        "currentPiece": null
     },
     {
-        "piece": "bishop_two_1",
-        "pos": 15
+        "pos": 11,
+        "currentPiece": null
     },
     {
-        "piece": "rook_two",
-        "pos": 16
+        "pos": 12,
+        "currentPiece": {
+            "id": 8,
+            "name": "pawn_two",
+            "piece": "pawn",
+            "team": "two"
+        }
     },
     {
-        "piece": "queen_two",
-        "pos": 17
+        "pos": 13,
+        "currentPiece": {
+            "id": 9,
+            "name": "knight_two",
+            "piece": "knight",
+            "team": "two"
+        }
     },
     {
-        "piece": "king_two",
-        "pos": 18
+        "pos": 14,
+        "currentPiece": {
+            "id": 10,
+            "name": "bishop_two_2",
+            "piece": "bishop",
+            "team": "two"
+        }
+    },
+    {
+        "pos": 15,
+        "currentPiece": {
+            "id": 11,
+            "name": "bishop_two_1",
+            "piece": "bishop",
+            "team": "two"
+        }
+    },
+    {
+        "pos": 16,
+        "currentPiece": {
+            "id": 12,
+            "name": "rook_two",
+            "piece": "rook",
+            "team": "two"
+        }
+    },
+    {
+        "pos": 17,
+        "currentPiece": {
+            "id": 13,
+            "name": "queen_two",
+            "piece": "queen",
+            "team": "two"
+        }
+    },
+    {
+        "pos": 18,
+        "currentPiece": {
+            "id": 14,
+            "name": "king_two",
+            "piece": "king",
+            "team": "two"
+        }
     }
     ]

@@ -1,12 +1,18 @@
-import React, { createContext, useReducer, useState } from 'react';
+import React, { createContext, useReducer} from 'react';
 import startingBoard from './starting-board.json';
 
-const initialState = {board: startingBoard};
+const initialState = {board: startingBoard, active: 1, team: 'one'};
 
 const store = createContext(initialState);
 const { Provider } = store;
 
-//state needs board and selected
+
+//dispatch
+//set piece active
+//move piece to place
+    //this calls custom hook for place that takes in position and returns new position
+    //switch team
+
 const StateProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {

@@ -1,48 +1,38 @@
-import { useContext } from 'react';
 import { GiChessKing, GiChessPawn, GiQueenCrown, GiChessRook, GiChessKnight } from 'react-icons/gi';
+import {useContext} from 'react';
+import {store} from '../store';
 import { FaChessBishop } from 'react-icons/fa';
 import Piece from '../components/board/Piece'
 
-function useGetPiece(id, board) {
+function useGetPiece(id) {
     /*This component returns the piece at given board position*/
 
-    let piece = {};
+    const {state} = useContext(store)
+    //eventually get board from context and remove board parameter
+    if (state.board.find(pos => pos.pos === id)) {
 
-    if (board.find(pos => pos.pos === id)) {
+        const {currentPiece} = state.board.find(pos => pos.pos === id);
+        
 
-        piece = board.find(pos => pos.pos === id);
-
-        switch (piece.piece) {
-            case 'king_one':
-                return <Piece team='one' piece={piece} icon={GiChessKing} />;
-            case 'queen_one':
-                return <Piece team='one' piece={piece} icon={GiQueenCrown} />;
-            case 'rook_one':
-                return <Piece team='one' piece={piece} icon={GiChessRook} styleClass='rook' />;
-            case 'bishop_one_1':
-                return <Piece team='one' piece={piece} icon={FaChessBishop} styleClass='bishop' />;
-            case 'bishop_one_2':
-                return <Piece team='one' piece={piece} icon={FaChessBishop} styleClass='bishop' />;
-            case 'knight_one':
-                return <Piece team='one' piece={piece} icon={GiChessKnight} />;
-            case 'pawn_one':
-                return <Piece team='one' piece={piece} icon={GiChessPawn} />;
-            case 'king_two':
-                return <Piece team='two' piece={piece} icon={GiChessKing} />;
-            case 'queen_two':
-                return <Piece team='two' piece={piece} icon={GiQueenCrown} />;
-            case 'rook_two':
-                return <Piece team='two' piece={piece} icon={GiChessRook} styleClass='rook' />;
-            case 'bishop_two_1':
-                return <Piece team='two' piece={piece} icon={FaChessBishop} styleClass='bishop' />;
-            case 'bishop_two_2':
-                return <Piece team='two' piece={piece} icon={FaChessBishop} styleClass='bishop' />;
-            case 'knight_two':
-                return <Piece team='two' piece={piece} icon={GiChessKnight} />;
-            case 'pawn_two':
-                return <Piece team='two' piece={piece} icon={GiChessPawn} />;
+        if(!currentPiece){
+            return null;
         }
 
+        switch (currentPiece.piece) {
+            case 'king':
+                return <Piece {...currentPiece} icon={GiChessKing} />;
+            case 'queen':
+                return <Piece {...currentPiece} icon={GiQueenCrown} />;
+            case 'rook':
+                return <Piece {...currentPiece} icon={GiChessRook} styleClass='rook' />;
+            case 'bishop':
+                return <Piece {...currentPiece} icon={FaChessBishop} styleClass='bishop' />;
+            case 'knight':
+                return <Piece {...currentPiece} icon={GiChessKnight} />;
+            case 'pawn':
+                return <Piece {...currentPiece} icon={GiChessPawn} />;
+          
+        }
     }
     return null;
 }
