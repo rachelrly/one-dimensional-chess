@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { StateProvider } from './store.js';
+import { GameContextProvider } from './contexts/GameContext';
 
 ReactDOM.render(
-    <StateProvider>
+    <GameContextProvider>
         <App />
-    </StateProvider>,
+    </GameContextProvider>,
     document.getElementById('root'));

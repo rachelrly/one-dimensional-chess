@@ -1,15 +1,11 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import startingBoard from '../../starting-board.json';
 import '../../css/Board.css';
 import Square from './Square';
+import {GameContext} from '../../contexts/GameContext';
 
 function Board() {
-    const [active, setActive] = useState(1);
-    const [board, setBoard] = useState([]);
-
-    useEffect(() => {
-        setBoard(startingBoard);
-    }, []);
+    const {board} = useContext(GameContext);
 
     return (
             <section>
@@ -17,14 +13,7 @@ function Board() {
                     <button>Toggle</button>
                 </div>
                 <div className='board'>
-                    {startingBoard.map(squ => {
-                        return <Square
-                            active={active}
-                            board={board}
-                            key={squ.pos}
-                            id={squ.pos}
-                            setActive={() => setActive(squ.pos)} />
-                    })}
+                    {board.map(squ => <Square key={squ.pos} id={squ.pos}/>)}
                 </div>
             </section>
         )

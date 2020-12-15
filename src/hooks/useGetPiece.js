@@ -1,18 +1,17 @@
 import { GiChessKing, GiChessPawn, GiQueenCrown, GiChessRook, GiChessKnight } from 'react-icons/gi';
 import {useContext} from 'react';
-import {store} from '../store';
+import {GameContext} from '../contexts/GameContext';
 import { FaChessBishop } from 'react-icons/fa';
 import Piece from '../components/board/Piece'
 
 function useGetPiece(id) {
     /*This component returns the piece at given board position*/
 
-    const {state} = useContext(store)
-    //eventually get board from context and remove board parameter
-    if (state.board.find(pos => pos.pos === id)) {
+    const {board} = useContext(GameContext)
+    
+    if (board.find(pos => pos.pos === id)) {
 
-        const {currentPiece} = state.board.find(pos => pos.pos === id);
-        
+        const {currentPiece} = board.find(pos => pos.pos === id);
 
         if(!currentPiece){
             return null;
@@ -31,7 +30,6 @@ function useGetPiece(id) {
                 return <Piece {...currentPiece} icon={GiChessKnight} />;
             case 'pawn':
                 return <Piece {...currentPiece} icon={GiChessPawn} />;
-          
         }
     }
     return null;
