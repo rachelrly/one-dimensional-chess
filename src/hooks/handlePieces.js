@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import {GameContext} from '../contexts/GameContext';
+import { GameContext } from '../contexts/GameContext';
 
 
 export function useMovePawn(moveTo, piece) {
     const [touched, setTouched] = useState(false);
 
-    const {setActive} = useContext(GameContext);
-//if checking movement not moving
-    if(!touched){
+    const { setActive } = useContext(GameContext);
+    //if checking movement not moving
+    if (!touched) {
         //set piece.pos + 2 || piece.pos + 1 to active
         //add class of active to display with outline
         //push values into active array
@@ -32,31 +32,31 @@ export function useMovePawn(moveTo, piece) {
 }
 
 
-export function useMoveBishop(moveTo, piece){
+export function useMoveBishop(moveTo, piece) {
 
     console.log('moved bishop')
     return piece;
 }
 
-export function useMoveRook(moveTo, piece){
+export function useMoveRook(moveTo, piece) {
 
     console.log('moved rook')
     return piece;
 }
 
-export function useMoveKing(moveTo, piece){
+export function useMoveKing(moveTo, piece) {
     console.log('moved king')
 
     return piece;
 }
 
-export function useMoveQueen(moveTo, piece){
+export function useMoveQueen(moveTo, piece) {
     console.log('moved queen')
 
     return piece;
 }
 
-export function useMoveKnight(moveTo, piece){
+export function useMoveKnight(moveTo, piece) {
     console.log('moved knight')
 
     return piece;
