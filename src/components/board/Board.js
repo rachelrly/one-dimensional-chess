@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import '../../css/Board.css';
 import Square from './Square';
 import { GameContext } from '../../contexts/GameContext';
@@ -12,7 +12,12 @@ function Board() {
 
     }, [board]);
 
+    // let refs = {};
+    // console.log(refs)
 
+    //How can I use refs to control which elements are 
+
+    // for(let i=0)
 
     return (
         <section>
@@ -20,7 +25,11 @@ function Board() {
                 <button>Toggle</button>
             </div>
             <div className={`board ${window.innerWidth >= window.innerHeight ? 'board-row' : 'board-col'}`}>
-                {board.map(squ => <Square key={squ.pos} id={squ.pos} />)}
+                {board.map((squ, i) => {
+
+                    //how can I get a variable name that 
+                    return <Square key={squ.pos} id={squ.pos} />
+                })}
             </div>
         </section>
     )

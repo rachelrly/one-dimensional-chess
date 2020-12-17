@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useRef } from 'react';
 import useGetPiece from '../../hooks/useGetPiece';
 import { GameContext } from '../../contexts/GameContext';
 import { useMovePiece } from '../../hooks/useMovePiece';
@@ -12,24 +12,23 @@ function Square(props) {
 
     let piece = useGetPiece(props.id);
 
+    let clickRef = useRef(props.id)
 
     const handleClick = (e) => {
         e.stopPropagation();
 
-        if (props.id == active) {
+
+        if (props.id === active) {
             return null;
         }
-        console.log(props.id);
+
         //select other piece from team
         if (piece && piece.props.team === team) {
-            setActive(props.id);
+            setActive(Number(clickRef.current.id));
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
-            if (props.id === active - 1) {
-                return null;
-            }
-            setBoard(movePiece(active - 1, props.id, activePiece.currentPiece, board));
+            setBoard(movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board));
             const newTeam = team === 'one' ? 'two' : 'one';
             setTeam(newTeam);
             setActive(null);
@@ -41,7 +40,8 @@ function Square(props) {
 
     return (
         <div
-            onClick={(e) => handleClick(e)}
+            ref={clickRef}
+            onClickCapture={(e) => handleClick(e)}
             className={`${active === props.id ? 'active' : null} square`}
             id={props.id}>
             {piece}
