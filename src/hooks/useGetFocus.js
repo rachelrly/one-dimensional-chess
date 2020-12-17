@@ -1,6 +1,7 @@
 // import { useContext } from 'react';
 // import { GameContext } from '../contexts/GameContext';
 
+//consider passing in these values rather than using context to make this more flexible
 
 
 // export function useGetFocus() {

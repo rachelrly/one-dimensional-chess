@@ -26,7 +26,10 @@ function Square(props) {
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
-            setBoard(movePawn(active - 1, props.id, activePiece.currentPiece, board));
+            if (props.id === active - 1) {
+                return null;
+            }
+            setBoard(movePiece(active - 1, props.id, activePiece.currentPiece, board));
             const newTeam = team === 'one' ? 'two' : 'one';
             setTeam(newTeam);
             setActive(null);
@@ -48,13 +51,28 @@ function Square(props) {
 
 export default Square;
 
-function movePawn(moveFrom, moveTo, piece, board) {
-    if (moveFrom == moveTo) {
-        return board;
-    }
+function movePiece(moveFrom, moveTo, piece, board) {
+
+
+    //call other functions that check if piece cam move
     console.log(`Move from ${moveFrom} to ${moveTo}`)
     board[moveTo].currentPiece = piece;
     board[moveFrom].currentPiece = null;
 
     return board;
+}
+
+function handlePawn(moveFrom, moveTo, piece) {
+    if (!piece.touched) {
+
+
+        piece.touched = true;
+
+        if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
+
+        }
+
+    }
+
+
 }

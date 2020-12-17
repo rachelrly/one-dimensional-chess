@@ -8,15 +8,18 @@ function Board() {
     let { board, team } = useContext(GameContext);
 
     useEffect(() => {
+        //putting board as a dependency re-renders after select rather than after move
 
-    }, [team]);
+    }, [board]);
+
+
 
     return (
         <section>
             <div className='toggle-button-wrapper'>
                 <button>Toggle</button>
             </div>
-            <div className='board'>
+            <div className={`board ${window.innerWidth >= window.innerHeight ? 'board-row' : 'board-col'}`}>
                 {board.map(squ => <Square key={squ.pos} id={squ.pos} />)}
             </div>
         </section>

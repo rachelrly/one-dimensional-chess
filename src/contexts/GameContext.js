@@ -10,7 +10,7 @@ export function GameContextProvider({ children }) {
   const [board, setBoard] = useState(startingBoard);
   const [active, setActive] = useState(7);
   const [team, setTeam] = useState('one');
-
+  console.log('active', active)
 
   const value = { board, active, team, setActive, setBoard, setTeam };
 
