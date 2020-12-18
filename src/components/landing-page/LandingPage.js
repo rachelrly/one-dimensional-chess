@@ -7,11 +7,14 @@ function LandingPage(props) {
   const { setPlaying } = useContext(GameContext);
   return (
     <div className='landing-page-wrapper'>
-      <JumpingPawn />
+
       <Header />
+      <JumpingPawn />
       <div className='play-button-wrapper'>
-        <button onClick={() => setPlaying(true)}>Play</button>
         <button>Demo</button>
+        <button onClick={() => setPlaying(true)}>Play</button>
+        <button>Learn more</button>
+
       </div>
     </div>
   )

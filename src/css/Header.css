@@ -5,7 +5,7 @@ header{
     justify-content: center;
     align-items: center;
     padding: var(--spacer-med);
-padding-top: 0;
+    padding-top: 0;
     color: var(--black);
 
 }
@@ -17,50 +17,206 @@ padding-top: 0;
     align-items: center;
 }
 
+.play-button-wrapper button{
+    margin: 0;
+}
+
+.play-button-wrapper button:nth-child(even){
+    background-color: var(--accent-dark);
+    color: var(--white);
+}
+
+.play-button-wrapper button:nth-child(even):focus{
+    color: var(--accent-dark);
+    background-color: var(--white);
+    border: 2px solid var(--accent-dark);
+}
+
 @keyframes jump{
     0%{
        top: 0;
        left: 0vw; 
     }
-    10%{
+    1%{
+        top: 0;
+        left: 1vw;
+    }
+    5%{
+        transform: scale(.9,1.1);
         top: -20px;
+        left: 5vw;
+    }
+    6%{
+        transform: scale(1.05,.95);
+    }
+    10%{
+        transform: scale(1,1);
+        top: 0px;
         left: 10vw;
     }
-    20%{
+    11%{
         top: 0px;
+        left: 10vw;
+    }
+    15%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 15vw;
+    }
+    16%{
+        transform: scale(1.05,.95);
+    }
+    20%{
+        transform: scale(1,1);
+        top: 0;
         left: 20vw;
     }
-    30%{
+    21%{
+        top: 0;
+        left: 20vw;
+    }
+    25%{
+        transform: scale(.9,1.1);
         top: -20px;
+        left: 25vw;
+    }
+    26%{
+        transform: scale(1.05,.95);
+    }
+    30%{
+        transform: scale(1,1);
+        top: 0;
         left: 30vw;
     }
+    31%{
+        top: 0;
+        left: 30vw;
+    }
+    35%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 35vw;
+    }
+    36%{
+        transform: scale(1.05,.95);
+    }
     40%{
+        transform: scale(1,1);
         top: 0;
         left: 40vw;
+        
+    }
+    41%{
+        top: 0;
+        left: 40vw;
+        
+    }
+    45%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 45vw;
+    }
+    46%{
+        transform: scale(1.05,.95);
     }
     50%{
-        top: -20px;
+        transform: scale(1,1);
+        top: 0;
         left: 50vw;
+        
+    }
+    51%{
+        top: 0;
+        left: 50vw;
+        
+    }
+    55%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 55vw;
+    }
+    56%{
+        transform: scale(1.05,.95);
     }
     60%{
+        transform: scale(1,1);
         top: 0;
         left: 60vw;
+        
+    }
+    61%{
+        top: 0;
+        left: 60vw;
+        
+    }
+    65%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 65vw;
+    }
+    66%{
+        transform: scale(1.05,.95);
     }
     70%{
-        top: -20px;
+        transform: scale(1,1);
+        top: 0;
         left: 70vw;
+        
+    }
+    71%{
+        top: 0;
+        left: 70vw;
+        
+    }
+    75%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 75vw;
+    }
+    76%{
+        transform: scale(1.05,.95);
     }
     80%{
+        transform: scale(1,1);
         top: 0;
         left: 80vw;
         
     }
-    90%{
+    81%{
+        top: 0;
+        left: 80vw;
+        
+    }
+    85%{
+        transform: scale(.9,1.1);
         top: -20px;
+        left: 85vw;
+    }
+    86%{
+        transform: scale(1.05,.95);
+    }
+    90%{
+        transform: scale(1,1);
+        top: 0;
         left: 90vw;
+        
+    }
+    91%{
+        top: 0;
+        left: 90vw;
+        
+    }
+    95%{
+        transform: scale(.9,1.1);
+        top: -20px;
+        left: 95vw;
+    }
+    96%{
+        transform: scale(1.05,.95);
     }
 
     100%{
+        transform: scale(1,1);
         top: 0;
         left: 100vw;
     }
@@ -76,7 +232,7 @@ padding-top: 0;
     color: var(--accent-dark);
     position: relative;
     animation-name: jump;
-    animation-duration: 4s;
+    animation-duration: 5s;
     animation-timing-function:  ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
     animation-iteration-count: infinite;
 }
