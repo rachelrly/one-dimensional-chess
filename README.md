@@ -6,11 +6,11 @@ View the WIP live version [here](https://one-d-chess.vercel.app/).
 
 ## Images
 
-![](screenshots/first-move.png)
+![](screenshots/first-move.jpg)
 
 The user can view (or hide) the instructions for each piece at the top of the screen.
 
-![](screenshots/board.png)
+![](screenshots/board.jpg)
 
 The board is displayed vertically on screens that are more tall than wide and horizontally on screens that are more wide than tall.
 
