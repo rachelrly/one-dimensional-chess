@@ -1,5 +1,9 @@
 # One Dimensional Chess
 
+This is a repository for Rachel Reilly's One Dimensional Chess React App.
+
+View the WIP live version [here](https://one-d-chess.vercel.app/).
+
 ## How to Play
 
 This version of one-dimensional chess uses Glimne's rules.

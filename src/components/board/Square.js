@@ -9,7 +9,9 @@ function Square(props) {
     const { team, setTeam, setActive, active, board, setBoard } = useContext(GameContext);
     const activePiece = board.find(squ => squ.pos === active);
     let piece = useGetPiece(props.id);
-    let clickRef = useRef(props.id)
+    let clickRef = useRef(props.id);
+
+
 
     const handleClick = (e) => {
         if (props.id === active) {

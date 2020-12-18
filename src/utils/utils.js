@@ -55,55 +55,46 @@ function _handlePawn(moveFrom, moveTo, piece) {
 }
 
 function _handleKnight(moveFrom, moveTo, piece) {
-  if (!piece.touched) {
-    piece.touched = true;
+  let num = moveTo - moveFrom;
+  return moveTo - moveFrom === 2 ||
+    moveTo - moveFrom === 3 ||
+    moveFrom - moveTo === 3 ||
+    moveFrom - moveTo === 2 ? true : false;
 
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
-
-    }
-
-  }
-  return true;
 }
 
 function _handleRook(moveFrom, moveTo, piece) {
+
+  //check for pieces in between
   return true;
 
 }
 
 function _handleKing(moveFrom, moveTo, piece) {
   //how do I add and subtract in board
+  return moveTo === moveFrom + 1 ||
+    moveTo === moveFrom + 2 ||
+    moveTo === moveFrom - 1 ||
+    moveTo === moveFrom - 2
+    ? true
+    : false;
 
-  if (piece.team === 'one') {
-    return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
-  }
-  else {
-    return moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
 
-  }
 }
 
 function _handleQueen(moveFrom, moveTo, piece) {
-  if (!piece.touched) {
-    piece.touched = true;
-
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
-
-    }
-
-  }
-  return true;
+  //or rook
+  return _handleBishop(moveFrom, moveTo, piece) ? true : false;
 }
 
 
 function _handleBishop(moveFrom, moveTo, piece) {
-  if (!piece.touched) {
-    piece.touched = true;
+  //check if there are squares between
+  let num = piece.team === 'one' ? moveTo - moveFrom : moveFrom - moveTo;
+  return num % 2 === 0 ? true : false;
 
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
+}
 
-    }
+function _isPieceBetween() {
 
-  }
-  return true;
 }
