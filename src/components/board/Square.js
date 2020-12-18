@@ -47,10 +47,18 @@ function Square(props) {
         }
     }
 
+    const handleKeyPress = e => {
+        if (e.key === 'Enter') {
+            handleClick(e);
+        }
+    }
+
     return (
         <div
             ref={clickRef}
             onClickCapture={(e) => handleClick(e)}
+            tabIndex='0'
+            onKeyPress={e => handleKeyPress(e)}
             className={`${active === props.id ? 'active' : null} square`}
             id={props.id}>
             {piece}

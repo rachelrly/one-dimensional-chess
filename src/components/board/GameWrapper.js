@@ -9,7 +9,11 @@ function GameWrapper() {
   return (
     <div className='game-wrapper'>
       <div className='back-button-wrapper'>
-        <IoMdArrowBack tabIndex='0' className='back-button' onClick={() => setPlaying(false)} />
+        <IoMdArrowBack
+          tabIndex='0'
+          className='back-button'
+          onClick={() => setPlaying(false)}
+          onKeyPress={e => e.key === 'Enter' ? setPlaying(false) : null} />
         <Instructions />
       </div>
       <Board />

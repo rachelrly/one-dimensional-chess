@@ -18,7 +18,7 @@ function Instructions() {
           <p>{instructions}</p>
           <button onClick={() => setToggle(!toggle)}>Hide</button>
         </Fragment>
-        : <button onClick={() => setToggle(!toggle)}>Show</button>}
+        : <button onClick={() => setToggle(!toggle)}>Rules</button>}
     </div>
   )
 }

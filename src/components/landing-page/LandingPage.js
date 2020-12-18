@@ -11,7 +11,6 @@ function LandingPage(props) {
       <Header />
       <JumpingPawn />
       <div className='play-button-wrapper'>
-        <button>Demo</button>
         <button onClick={() => setPlaying(true)}>Play</button>
         <button>Learn more</button>
 

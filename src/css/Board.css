@@ -22,7 +22,7 @@ flex-direction: column;
 }
 
 .back-button:focus{
-    border: 2px solid var(--accent-dark);
+    color: var(--accent-dark);
 }
 
 .board{
@@ -47,6 +47,14 @@ flex-direction: column;
 .square{
     height: var(--square);
     width: var(--square);
+    outline: 0;
+}
+
+.square:focus,
+.square:hover{
+    outline: 3px solid var(--accent-dark);
+    z-index: 2;
+ 
 }
 
 .square:nth-child(odd){
@@ -64,11 +72,17 @@ flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .piece{
     font-size: var(--square);
+    transition: transform 1s ease;
 }
+
+
+
+
 
 .one{
     color: var(--accent-light);
@@ -95,7 +109,7 @@ flex-direction: column;
 }
 
 .active{
-    outline:3px solid red;
+    outline:3px solid var(--accent-alert);
     z-index: 4;
 }
 

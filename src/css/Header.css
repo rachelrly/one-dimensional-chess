@@ -25,17 +25,21 @@ h1{
     margin: 0;
 }
 
-.play-button-wrapper button:nth-child(even):focus,
-.play-button-wrapper button:nth-child(even):hover{
+.play-button-wrapper button:first-of-type:focus,
+.play-button-wrapper button:first-of-type:hover{
     background-color: var(--white);
     color: var(--accent-dark)
 }
 
 
-.play-button-wrapper button:nth-child(even){
+.play-button-wrapper button:first-of-type{
     background-color: var(--accent-dark);
     border-right: 0;
-    border-left: 0;
+}
+
+.play-button-wrapper button:last-of-type:focus,
+.play-button-wrapper button:last-of-type:hover{
+    border-left: 2px solid var(--black);
 }
 
 
@@ -240,7 +244,7 @@ h1{
     position: relative;
     animation-name: jump;
     animation-duration: 5s;
-    animation-timing-function:  ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    animation-timing-function:  ease, step-start, cubic-bezier(0, 0.69, 0.4, 1.4);
     animation-iteration-count: infinite;
 }
 
