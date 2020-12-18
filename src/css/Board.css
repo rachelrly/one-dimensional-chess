@@ -96,3 +96,7 @@ main{
     justify-content: flex-end;
     align-items: center;
 }
+
+.board-col{
+    margin-bottom: var(--spacer-med);
+}

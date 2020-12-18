@@ -3,6 +3,7 @@ import '../../css/Board.css';
 import Square from './Square';
 import { GameContext } from '../../contexts/GameContext';
 import { useWindowSize } from '../../hooks/useWindowSize';
+import Instructions from './Instructions';
 
 
 function Board() {
@@ -16,6 +17,7 @@ function Board() {
                     return <Square key={squ.pos} id={squ.pos} />
                 })}
             </div>
+            <Instructions />
         </section>
     )
 }

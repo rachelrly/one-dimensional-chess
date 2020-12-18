@@ -1,0 +1,30 @@
+.instructions-wrapper{
+  width: 100%; 
+  height: 100px;
+  padding: var(--spacer-sm);
+  display: flex;
+  align-items: flex-end;
+}
+
+.instructions-inner-wrapper{
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+align-items: flex-end;
+height: inherit;
+width: inherit;
+
+}
+
+.instructions-wrapper p {
+  flex: 1;
+  color: var(--white);
+  padding-left: var(--spacer-sm);
+}
+
+.instructions-button{
+  width: 100px;
+  padding: 0 var(--spacer-sm);
+}
+
+
