@@ -1,6 +1,5 @@
 import React, { useState, useContext, createContext } from 'react';
 import startingBoard from '../starting-board.json';
-import { useMovePiece } from '../hooks/useMovePiece';
 import { useGetFocus } from '../hooks/useGetFocus';
 
 export const GameContext = createContext();
@@ -13,9 +12,13 @@ export function GameContextProvider({ children }) {
 
   let focus = useGetFocus(team, board);
 
-  if (!active) {
+  if (!active && focus) {
     setActive(focus);
   }
+
+  //HOW will I know when the game is over? How will I trigger this?
+
+
 
 
   const value = { board, active, team, setActive, setBoard, setTeam };

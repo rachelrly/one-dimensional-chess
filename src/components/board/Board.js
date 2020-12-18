@@ -12,18 +12,11 @@ function Board() {
 
     }, [board]);
 
-    // let refs = {};
-    // console.log(refs)
-
-    //How can I use refs to control which elements are 
-
-    // for(let i=0)
-
     return (
         <section>
-            <div className='toggle-button-wrapper'>
+            {/* <div className='toggle-button-wrapper'>
                 <button>Toggle</button>
-            </div>
+            </div> */}
             <div className={`board ${window.innerWidth >= window.innerHeight ? 'board-row' : 'board-col'}`}>
                 {board.map((squ, i) => {
 

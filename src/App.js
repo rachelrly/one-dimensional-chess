@@ -11,7 +11,7 @@ function App() {
     <main className="App">
 
       {playing
-        ? <Board />
+        ? <Board setPlaying={() => setPlaying(false)} />
         : <div className='landing-page-wrapper'>
           <Header />
           <div className='play-button-wrapper'>
