@@ -9,6 +9,7 @@ export function GameContextProvider({ children }) {
   const [board, setBoard] = useState(startingBoard);
   const [team, setTeam] = useState('one');
   const [active, setActive] = useState(null);
+  const [playing, setPlaying] = useState(false)
 
   let focus = useGetFocus(team, board);
 
@@ -19,9 +20,7 @@ export function GameContextProvider({ children }) {
   //HOW will I know when the game is over? How will I trigger this?
 
 
-
-
-  const value = { board, active, team, setActive, setBoard, setTeam };
+  const value = { playing, board, active, team, setPlaying, setActive, setBoard, setTeam };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>
 

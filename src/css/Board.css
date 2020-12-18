@@ -1,20 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+
+.game-wrapper{
+width: inherit; 
+height: inherit;
+display: flex;
+flex-direction: column;
 }
-main{
-    width: 100%;
+
+.back-button-wrapper{
+    width: inherit;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-mid);
-    font-family: 'Playfair Display', serif;
+    padding: var(--spacer-sm);
 }
 
+.back-button{
+    font-size: var(--square);
+    outline: 0;
+}
+
+.back-button:focus{
+    border: 2px solid var(--accent-dark);
+}
 
 .board{
     display:flex;

@@ -6,14 +6,14 @@ header{
     align-items: center;
     padding: var(--spacer-med);
 padding-top: 0;
-    color: var(--colors-light-grey);
+    color: var(--black);
 
 }
 
 .play-button-wrapper{
     display: flex;
     width: inherit; 
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -73,7 +73,7 @@ padding-top: 0;
 }
 
 .jumping-pawn{
-    color: var(--white);
+    color: var(--accent-dark);
     position: relative;
     animation-name: jump;
     animation-duration: 4s;

@@ -3,12 +3,15 @@ import '../../css/Board.css';
 import Square from './Square';
 import { GameContext } from '../../contexts/GameContext';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import Instructions from './Instructions';
+
 
 
 function Board() {
     let { board } = useContext(GameContext);
     const [width, height] = useWindowSize();
+
+    //make game wrapper that is not board
+    //make 'x' and cxl game
 
     return (
         <section>
@@ -17,7 +20,6 @@ function Board() {
                     return <Square key={squ.pos} id={squ.pos} />
                 })}
             </div>
-            <Instructions />
         </section>
     )
 }

@@ -35,7 +35,7 @@ footer{
     align-items: center;
     width: inherit;
     height: 50px;
-    background-color: var(--colors-accent);
+    background-color: var(--accent-dark);
     color: var(--colors-white);
     padding: var(--spacer-sm);
 }
@@ -53,20 +53,19 @@ p{
 button{
     cursor: pointer;
     outline: 0;
-    width: 90px;
-    height: 40px;
-    color: var(--colors-light-grey);
-    background-color: var(--colors-accent-mid);
-    border: 2px solid var(--colors-light-grey);
-    margin: var(--spacer-sm) 0;
+    width: var(--square);
+    height: var(--square);
+    color: var(--accent-dark);
+    background-color: var(--white);
+    border: 2px solid var(--accent-dark);
+    margin: var(--spacer-sm);
     padding: 0;
-    border-radius: 15px;
 }
 
 button:focus{
-    background-color: var(--colors-light-grey);
-    color: var(--colors-accent-mid);
-    border: 2px solid var(--colors-accent);
+    background-color: var(--accent-dark);
+    color: var(--black);
+    border: 2px solid var(--accent-dark);
 }
 
 section{

@@ -18,7 +18,7 @@ width: inherit;
 
 .instructions-wrapper p {
   flex: 1;
-  color: var(--white);
+  color: var(--black);
   padding-left: var(--spacer-sm);
 }
 
