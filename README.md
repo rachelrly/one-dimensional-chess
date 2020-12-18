@@ -28,7 +28,7 @@ White King, Queen, Rook, Bishop, Bishop, Knight, Pawn, four empty squares, Black
 
 > A Rook moves as usual.
 
-> A Bishop moves an even number of squares (i.e., only on squares of his own color), and jumps over squares of the other color, e.g., when white starts the game with moving his pawn, he can move the next turn the bishop that is most towards the black pieces.
+> A Bishop moves an even number of squares (i.e. only on squares of his own color), and jumps over squares of the other color, e.g., when white starts the game with moving his pawn, he can move the next turn the bishop that is most towards the black pieces.
 
 > The Queen has the combined moves of bishop and rook.
 
