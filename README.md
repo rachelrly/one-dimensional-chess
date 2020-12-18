@@ -4,6 +4,16 @@ This is a repository for Rachel Reilly's One Dimensional Chess React App.
 
 View the WIP live version [here](https://one-d-chess.vercel.app/).
 
+## Images
+
+![](screenshots/first-move.png)
+
+The user can view (or hide) the instructions for each piece at the top of the screen.
+
+![](screenshots/board.png)
+
+The board is displayed vertically on screens that are more tall than wide and horizontally on screens that are more wide than tall.
+
 ## How to Play
 
 This version of one-dimensional chess uses Glimne's rules.
