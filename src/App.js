@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Board from './components/board/Board';
-import Header from './components/header/Header';
-
+import LandingPage from './components/landing-page/LandingPage';
 import './css/globals.css';
 import './css/main.css';
 
@@ -12,12 +11,7 @@ function App() {
 
       {playing
         ? <Board setPlaying={() => setPlaying(false)} />
-        : <div className='landing-page-wrapper'>
-          <Header />
-          <div className='play-button-wrapper'>
-            <button onClick={() => { setPlaying(!playing) }}>Play</button>
-          </div>
-        </div>
+        : <LandingPage setPlaying={() => setPlaying(true)} />
       }
 
     </main>

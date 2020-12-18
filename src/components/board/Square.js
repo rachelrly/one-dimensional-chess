@@ -31,12 +31,10 @@ function Square(props) {
                 setTeam(newTeam);
                 setActive(null);
             }
-
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
             let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
-
             if (res.valid) {
                 setBoard(res.board);
                 const newTeam = team === 'one' ? 'two' : 'one';
@@ -44,7 +42,6 @@ function Square(props) {
                 setActive(null);
             }
         }
-
         else {
             return null;
         }

@@ -4,7 +4,7 @@ import '../../css/Header.css';
 function Header() {
     return (
         <header>
-            <h1>1 dimensional chess</h1>
+            <h1>One Dimensional Chess</h1>
         </header>
     )
 }
