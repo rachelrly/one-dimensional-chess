@@ -1,34 +1,40 @@
-// import { useContext } from 'react';
-// import { GameContext } from '../contexts/GameContext';
+
 
 //consider passing in these values rather than using context to make this more flexible
 
 
-// export function useGetFocus() {
-//   const { team, board } = useContext(GameContext);
+export function useGetFocus(team, board) {
+  if (team === 'one') {
+    //start at end and look for piece
 
-//   let len = board.length / 2;
+    for (let i = board.length; i > 0; i--) {
 
-//   if (team === 'one') {
-//     let sub = board.slice(0, len);
+      if (board[i]) {
+        if (board[i].currentPiece && board[i].currentPiece.team === 'one') {
+          return board[i].pos;
+        }
+      }
+    }
 
-//     for (let i = len; i >= 0; i--) {
-//       if (sub[i].currentPiece) {
-//         return i;
-//       }
-//     }
-//   } else {
-//     let sub = board.slice(len + 1, board.length)
 
-//     for (let i = 0; i < sub.length; i++) {
-//       if (sub[i].currentPiece) {
-//         return i;
-//       }
-//     }
-//   }
 
-// }
+  } else {
+    for (let i = 0; i < board.length; i++) {
+      if (board[i]) {
+        if (board[i].currentPiece && board[i].currentPiece.team === 'two') {
+          console.log('current team', board[i].currentPiece.team)
 
-function findFocusElement() {
+          return board[i].pos;
+        }
+        else {
+          continue;
+        }
+      }
+      else {
+        continue;
+      }
+    }
+
+  }
 
 }
