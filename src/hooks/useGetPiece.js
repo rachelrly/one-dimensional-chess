@@ -6,9 +6,7 @@ import Piece from '../components/board/Piece'
 
 function useGetPiece(id) {
     /*This component returns the piece at given board position*/
-
     const { board } = useContext(GameContext)
-
     const { currentPiece } = board.find(pos => pos.pos === id);
 
     if (!currentPiece) {

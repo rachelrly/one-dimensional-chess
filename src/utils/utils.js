@@ -1,6 +1,6 @@
 
 export function movePiece(moveFrom, moveTo, piece, board) {
-
+  //indicates if move is valid for selected piece and current board
   let valid = null;
 
   switch (piece.piece) {
@@ -28,11 +28,11 @@ export function movePiece(moveFrom, moveTo, piece, board) {
     board[moveTo].currentPiece = piece;
     board[moveFrom].currentPiece = null;
   }
-
   return { board, valid };
 }
 
-
+//moves 1 or 2 places forward when untouched
+//moves 1 after touched
 function _handlePawn(moveFrom, moveTo, piece) {
   if (!piece.touched) {
     piece.touched = true;
@@ -54,6 +54,7 @@ function _handlePawn(moveFrom, moveTo, piece) {
   }
 }
 
+//moves two or three squares, jumping over others
 function _handleKnight(moveFrom, moveTo, piece) {
   let num = moveTo - moveFrom;
   return moveTo - moveFrom === 2 ||
@@ -63,6 +64,7 @@ function _handleKnight(moveFrom, moveTo, piece) {
 
 }
 
+//moves the same as in standard chess
 function _handleRook(moveFrom, moveTo, piece) {
 
   //check for pieces in between
@@ -70,6 +72,8 @@ function _handleRook(moveFrom, moveTo, piece) {
 
 }
 
+
+// moves 1 or 2 squares in either direction
 function _handleKing(moveFrom, moveTo, piece) {
   //how do I add and subtract in board
   return moveTo === moveFrom + 1 ||
@@ -82,12 +86,13 @@ function _handleKing(moveFrom, moveTo, piece) {
 
 }
 
+//combined moves of rook and bishop
 function _handleQueen(moveFrom, moveTo, piece) {
   //or rook
   return _handleBishop(moveFrom, moveTo, piece) ? true : false;
 }
 
-
+//moves to squares of the same color, jumping over others
 function _handleBishop(moveFrom, moveTo, piece) {
   //check if there are squares between
   let num = piece.team === 'one' ? moveTo - moveFrom : moveFrom - moveTo;
@@ -96,5 +101,10 @@ function _handleBishop(moveFrom, moveTo, piece) {
 }
 
 function _isPieceBetween() {
+  //split board
+  //map through sub-board
+
+
+
 
 }

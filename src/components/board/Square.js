@@ -11,8 +11,6 @@ function Square(props) {
     let piece = useGetPiece(props.id);
     let clickRef = useRef(props.id);
 
-
-
     const handleClick = (e) => {
         if (props.id === active) {
             return null;

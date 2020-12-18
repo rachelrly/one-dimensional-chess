@@ -11,7 +11,7 @@
   flex: 1;
   color: var(--black);
   padding: var(--spacer-sm);
-  text-align: right;
+  text-align: center;
 }
 
 .instructions-wrapper button{

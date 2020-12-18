@@ -15,7 +15,7 @@ function Instructions() {
     < div className='instructions-wrapper' >
       {toggle
         ? <Fragment>
-          {instructions}
+          <p>{instructions}</p>
           <button onClick={() => setToggle(!toggle)}>Hide</button>
         </Fragment>
         : <button onClick={() => setToggle(!toggle)}>Show</button>}
