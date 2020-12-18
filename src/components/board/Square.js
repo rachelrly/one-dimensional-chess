@@ -15,26 +15,36 @@ function Square(props) {
         if (props.id === active) {
             return null;
         }
+        else if (!piece && !active) {
+            return null;
+        }
         //select other piece from team
         if (piece && piece.props.team === team) {
             setActive(Number(clickRef.current.id));
         }
         else if (piece && active && piece.props.team !== team) {
-            setBoard(movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board));
-            const newTeam = team === 'one' ? 'two' : 'one';
-            setTeam(newTeam);
-            setActive(null);
+            let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
+
+            if (res.valid) {
+                setBoard(res.board);
+                const newTeam = team === 'one' ? 'two' : 'one';
+                setTeam(newTeam);
+                setActive(null);
+            }
+
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
-            setBoard(movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board));
-            const newTeam = team === 'one' ? 'two' : 'one';
-            setTeam(newTeam);
-            setActive(null);
+            let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
+
+            if (res.valid) {
+                setBoard(res.board);
+                const newTeam = team === 'one' ? 'two' : 'one';
+                setTeam(newTeam);
+                setActive(null);
+            }
         }
-        else if (!piece && !active) {
-            return null;
-        }
+
         else {
             return null;
         }

@@ -2,6 +2,7 @@
 export function movePiece(moveFrom, moveTo, piece, board) {
 
   let valid = null;
+
   switch (piece.piece) {
     case 'king':
       valid = _handleKing(moveFrom, moveTo, piece);
@@ -28,25 +29,32 @@ export function movePiece(moveFrom, moveTo, piece, board) {
     board[moveFrom].currentPiece = null;
   }
 
-  return board;
+  return { board, valid };
 }
 
 
 function _handlePawn(moveFrom, moveTo, piece) {
-  console.log('pawn handled')
   if (!piece.touched) {
     piece.touched = true;
 
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
-
+    if (piece.team === 'one') {
+      return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
     }
-
+    else {
+      return moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
+    }
   }
-  return true;
+  else {
+    if (piece.team === 'one') {
+      return moveTo === moveFrom + 1 ? true : false;
+    }
+    else {
+      return moveTo === moveFrom - 1 ? true : false;
+    }
+  }
 }
 
 function _handleKnight(moveFrom, moveTo, piece) {
-  console.log('knight handled')
   if (!piece.touched) {
     piece.touched = true;
 
@@ -59,33 +67,23 @@ function _handleKnight(moveFrom, moveTo, piece) {
 }
 
 function _handleRook(moveFrom, moveTo, piece) {
-  console.log('rook handled')
-  if (!piece.touched) {
-    piece.touched = true;
-
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
-
-    }
-
-  }
   return true;
+
 }
 
 function _handleKing(moveFrom, moveTo, piece) {
-  console.log('King handled')
-  if (!piece.touched) {
-    piece.touched = true;
+  //how do I add and subtract in board
 
-    if (moveTo === moveFrom + 1 || moveTo === moveFrom + 2) {
-
-    }
+  if (piece.team === 'one') {
+    return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
+  }
+  else {
+    return moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
 
   }
-  return true;
 }
 
 function _handleQueen(moveFrom, moveTo, piece) {
-  console.log('queen handled')
   if (!piece.touched) {
     piece.touched = true;
 
@@ -99,7 +97,6 @@ function _handleQueen(moveFrom, moveTo, piece) {
 
 
 function _handleBishop(moveFrom, moveTo, piece) {
-  console.log('bishop handled')
   if (!piece.touched) {
     piece.touched = true;
 
