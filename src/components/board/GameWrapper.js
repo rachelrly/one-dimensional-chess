@@ -10,9 +10,10 @@ function GameWrapper() {
     <div className='game-wrapper'>
       <div className='back-button-wrapper'>
         <IoMdArrowBack tabIndex='0' className='back-button' onClick={() => setPlaying(false)} />
+        <Instructions />
       </div>
       <Board />
-      <Instructions />
+
     </div>
 
   )

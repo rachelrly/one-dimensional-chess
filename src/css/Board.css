@@ -11,6 +11,9 @@ flex-direction: column;
     width: inherit;
     height: 100%;
     padding: var(--spacer-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .back-button{

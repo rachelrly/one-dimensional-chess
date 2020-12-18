@@ -14,11 +14,11 @@ function Instructions() {
   return (
     < div className='instructions-wrapper' >
       {toggle
-        ? <div className='instructions-inner-wrapper'>
+        ? <Fragment>
           {instructions}
-          <button className='instructions-button' onClick={() => setToggle(!toggle)}>Hide</button>
-        </div>
-        : <button className='instructions-button show-button' onClick={() => setToggle(!toggle)}>Show</button>}
+          <button onClick={() => setToggle(!toggle)}>Hide</button>
+        </Fragment>
+        : <button onClick={() => setToggle(!toggle)}>Show</button>}
     </div>
   )
 }

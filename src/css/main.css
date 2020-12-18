@@ -26,6 +26,7 @@ main{
     justify-content: flex-start;
     align-items: center;
     font-family: var(--font);
+    background-color: var(--light-grey);
     
 }
 
@@ -55,16 +56,14 @@ button{
     outline: 0;
     width: var(--square);
     height: var(--square);
-    color: var(--accent-dark);
-    background-color: var(--white);
-    border: 2px solid var(--accent-dark);
-    margin: var(--spacer-sm) 0;
+    color: var(--black);
+    border: 2px solid var(--black);
     padding: 0;
 }
 
-button:focus{
-    background-color: var(--accent-dark);
-    color: var(--black);
+button:focus,
+button:hover{
+    color: var(--accent-dark);
     border: 2px solid var(--accent-dark);
 }
 
@@ -76,7 +75,7 @@ section{
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
     color: var(--colors-black);
 }
 

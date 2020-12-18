@@ -7,7 +7,10 @@ header{
     padding: var(--spacer-med);
     padding-top: 0;
     color: var(--black);
+}
 
+h1{
+    padding: var(--spacer-sm) 0;
 }
 
 .play-button-wrapper{
@@ -21,16 +24,19 @@ header{
     margin: 0;
 }
 
-.play-button-wrapper button:nth-child(even){
-    background-color: var(--accent-dark);
-    color: var(--white);
+.play-button-wrapper button:nth-child(even):focus,
+.play-button-wrapper button:nth-child(even):hover{
+    background-color: var(--white);
+    color: var(--accent-dark)
 }
 
-.play-button-wrapper button:nth-child(even):focus{
-    color: var(--accent-dark);
-    background-color: var(--white);
-    border: 2px solid var(--accent-dark);
+
+.play-button-wrapper button:nth-child(even){
+    background-color: var(--accent-dark);
+    border-right: 0;
+    border-left: 0;
 }
+
 
 @keyframes jump{
     0%{
@@ -229,7 +235,7 @@ header{
 }
 
 .jumping-pawn{
-    color: var(--accent-dark);
+    color: var(--black);
     position: relative;
     animation-name: jump;
     animation-duration: 5s;
