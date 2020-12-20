@@ -15,26 +15,27 @@
     --spacer-sm: 0.8rem;
     --spacer-med: 1rem;
 
+    --square: 50px;
+
     --font: 'Playfair Display', serif;
 }
 
 @media all and (max-width: 450px){
     :root{
-        --square: 50px;
         --spacer-sm: 0.9rem;
         
     }
 
 }
 
-@media all and (min-width: 450px){
+/* @media all and (min-width: 450px){
     :root{
         --square: calc(100vw / 20);
     }
 
-}
+} */
 
-@media all and (min-width: 700px){
+@media all and (min-width: 800px){
     :root{
         --square: calc(100vw / 20);
         --spacer-med: 1.2rem;

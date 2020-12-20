@@ -17,10 +17,13 @@ export function GameContextProvider({ children }) {
     setActive(focus);
   }
 
-  //HOW will I know when the game is over? How will I trigger this?
+  const resetBoard = () => {
+    setBoard(startingBoard);
+    setActive(null);
+    setTeam('one');
+  };
 
-
-  const value = { playing, board, active, team, setPlaying, setActive, setBoard, setTeam };
+  const value = { playing, board, active, team, setPlaying, setActive, setBoard, resetBoard, setTeam };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>
 

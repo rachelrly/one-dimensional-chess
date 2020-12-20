@@ -2,7 +2,7 @@
 
 .game-wrapper{
 width: inherit; 
-height: inherit;
+height: 100%;
 display: flex;
 flex-direction: column;
 }
@@ -21,14 +21,21 @@ flex-direction: column;
     outline: 0;
 }
 
-.back-button:focus{
+.back-button:focus,
+.back-button:hover{
     color: var(--accent-dark);
 }
+
 
 .board{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.instructions{
+    width: calc(var(--square) * 0.75);
+    height: calc(var(--square) * 0.75);
 }
 
 .board-row{
@@ -50,11 +57,9 @@ flex-direction: column;
     outline: 0;
 }
 
-.square:focus,
-.square:hover{
+.square:focus{
     outline: 3px solid var(--accent-dark);
-    z-index: 2;
- 
+    z-index: 1;
 }
 
 .square:nth-child(odd){
@@ -100,17 +105,18 @@ flex-direction: column;
     padding: 2px;
 }
 
-.one.active{
+/* .one.active{
     outline: 3px solid var(--accent-light);
+    z-index: 6;
 }
 
 .two.active{
     outline: 3px solid var(--accent-dark);
-}
+} */
 
 .active{
     outline:3px solid var(--accent-alert);
-    z-index: 4;
+    z-index: 6 !important;
 }
 
 .toggle-button-wrapper{

@@ -4,14 +4,12 @@ import Square from './Square';
 import { GameContext } from '../../contexts/GameContext';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
-
-
 function Board() {
+    /*This component mapps the squares according to the board and checks 
+    the viewport height and width for orientation*/
+
     let { board } = useContext(GameContext);
     const [width, height] = useWindowSize();
-
-    //make game wrapper that is not board
-    //make 'x' and cxl game
 
     return (
         <section>

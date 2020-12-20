@@ -1,0 +1,33 @@
+.review-wrapper{
+  width: inherit;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacer-sm);
+
+}
+
+.review-button-wrapper{
+  display: flex;
+  width: inherit;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacer-sm);
+}
+
+.review-king{
+  flex: 2;
+  font-size: 50vw;
+}
+
+.review-icon{
+  font-size: var(--square);
+  outline: 0;
+}
+
+.review-icon:focus,
+.review-icon:hover{
+  color: var(--accent-dark);
+}

@@ -3,6 +3,7 @@ export function movePiece(moveFrom, moveTo, piece, board) {
   //indicates if move is valid for selected piece and current board
   let valid = null;
 
+  console.log('sub board', _getSubBoard(moveFrom, moveTo, board))
   switch (piece.piece) {
     case 'king':
       valid = _handleKing(moveFrom, moveTo, piece);
@@ -28,6 +29,11 @@ export function movePiece(moveFrom, moveTo, piece, board) {
     board[moveTo].currentPiece = piece;
     board[moveFrom].currentPiece = null;
   }
+
+  if (_isOver(moveTo, board)) {
+    return { board, valid, over: true }
+  }
+
   return { board, valid };
 }
 
@@ -97,6 +103,26 @@ function _handleBishop(moveFrom, moveTo, piece) {
   //check if there are squares between
   let num = piece.team === 'one' ? moveTo - moveFrom : moveFrom - moveTo;
   return num % 2 === 0 ? true : false;
+
+}
+
+function _isOver(moveTo, board) {
+  return board[moveTo - 1].piece === 'king'
+    ? board[moveTo - 1].team
+    : null
+}
+
+function _getSubBoard(moveFrom, moveTo, board, limit = null) {
+
+
+  //check piece at moveTo
+  //do a for loop
+  //reversed based on moveFrom > moveTo
+  //look at piece's team 
+
+  return moveFrom > moveTo
+    ? board.slice(moveTo, moveFrom)
+    : board.slice(moveFrom + 1, moveTo + 1);
 
 }
 

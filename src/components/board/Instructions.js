@@ -4,23 +4,24 @@ import { useGetPieceInstructions } from '../../hooks/useGetPieceInstructions';
 import '../../css/Instructions.css';
 
 function Instructions() {
-  const [toggle, setToggle] = useState(true)
+  const [toggle, setToggle] = useState(true);
   const { active } = useContext(GameContext);
-  const instructions = useGetPieceInstructions(active)
-  useEffect(() => {
+  const instructions = useGetPieceInstructions(active);
 
-  }, [active])
+  //rerenders component when active value changes
+  useEffect(() => {
+  }, [active]);
 
   return (
     < div className='instructions-wrapper' >
       {toggle
         ? <Fragment>
           <p>{instructions}</p>
-          <button onClick={() => setToggle(!toggle)}>Hide</button>
+          <button className='instructions' onClick={() => setToggle(!toggle)}>Hide</button>
         </Fragment>
-        : <button onClick={() => setToggle(!toggle)}>Rules</button>}
+        : <button className='instructions' onClick={() => setToggle(!toggle)}>Rules</button>}
     </div>
-  )
-}
+  );
+};
 
-export default Instructions
+export default Instructions;
