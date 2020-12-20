@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import { GameContext } from '../../contexts/GameContext';
 import { MdReplay, MdClose } from 'react-icons/md';
 import { GiChessKing } from 'react-icons/gi';

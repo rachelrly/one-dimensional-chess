@@ -26,7 +26,8 @@ main{
     justify-content: flex-start;
     align-items: center;
     font-family: var(--font);
-    background-color: var(--light-grey);
+    background-color: var(--bg);
+    color: var(--colors-white);
     
 }
 
@@ -36,7 +37,7 @@ footer{
     align-items: center;
     width: inherit;
     height: 50px;
-    background-color: var(--accent-dark);
+    background-color: var(--accent-mid);
     color: var(--colors-white);
     padding: var(--spacer-sm);
 }
@@ -49,6 +50,7 @@ footer .icon{
 p{
     padding: var(--spacer-sm) 0;
     font-size: var(--font-size-sm);
+    color: var(--colors-white);
 }
 
 button{
@@ -63,8 +65,8 @@ button{
 
 button:focus,
 button:hover{
-    color: var(--accent-dark);
-    border: 2px solid var(--accent-dark);
+    color: var(--accent-mid);
+    border: 2px solid var(--accent-mid);
 }
 
 section{
@@ -78,35 +80,4 @@ section{
     min-height: calc(100vh - 200px);
     color: var(--colors-black);
 }
-
-
-
-
-
-
-/*STYLES FOR FORM ELEMENTS*/
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-form div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-input, textarea{
-    width: 100%;
-    padding: 3px;
-    font-size: var(--font-size-sm);
-    outline: 0;
-}
-
-input:focus, textarea:focus{
-    border: 2px solid var(--colors-accent);
-}
-
 

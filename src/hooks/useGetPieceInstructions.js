@@ -21,9 +21,8 @@ export function useGetPieceInstructions(id) {
       return 'The Knight moves two or three squares, and it may jump over other pieces.';
     case 'pawn':
       return 'The pawn only moves one square, except on the first move, where it may move two squares.';
+    default: return null;
   }
-
-  return null;
 }
 
 export default useGetPieceInstructions;

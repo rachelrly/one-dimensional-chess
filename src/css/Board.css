@@ -1,10 +1,8 @@
-
-
 .game-wrapper{
-width: inherit; 
-height: 100%;
-display: flex;
-flex-direction: column;
+    width: inherit; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .back-button-wrapper{
@@ -23,9 +21,8 @@ flex-direction: column;
 
 .back-button:focus,
 .back-button:hover{
-    color: var(--accent-dark);
+    color: var(--accent-mid);
 }
-
 
 .board{
     display:flex;
@@ -44,11 +41,19 @@ flex-direction: column;
     height: 100%;
 }
 
-.board-col{
+.board-col-one{
     flex-direction: column;
     width: 100%;
     height: 100%;
     min-height: 90vh;
+    transition: width height 1s;
+}
+.board-col-two{
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+    min-height: 90vh;
+    transition: width height 1s;
 }
 
 .square{
@@ -57,17 +62,24 @@ flex-direction: column;
     outline: 0;
 }
 
-.square:focus{
-    outline: 3px solid var(--accent-dark);
+.square.one:focus{
+    outline: 2px solid var(--accent-light);
+    z-index: 1;
+}
+
+.square.two:focus{
+    outline: 2px solid var(--accent-dark);
     z-index: 1;
 }
 
 .square:nth-child(odd){
     background-color: var(--black);
+    border: 1px solid var(--black);
 }
 
 .square:nth-child(even){
     background-color: var(--white);
+    border: 1px solid var(--black);
 }
 
 .piece_wrapper{
@@ -77,17 +89,12 @@ flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .piece{
     font-size: var(--square);
     transition: transform 1s ease;
 }
-
-
-
-
 
 .one{
     color: var(--accent-light);
@@ -105,25 +112,14 @@ flex-direction: column;
     padding: 2px;
 }
 
-/* .one.active{
-    outline: 3px solid var(--accent-light);
-    z-index: 6;
-}
-
-.two.active{
-    outline: 3px solid var(--accent-dark);
-} */
-
-.active{
-    outline:3px solid var(--accent-alert);
+.active.one{
+    outline:3px solid var(--accent-dark);
     z-index: 6 !important;
 }
 
-.toggle-button-wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+.active.two{
+    outline:3px solid var(--accent-light);
+    z-index: 6 !important;
 }
 
 .board-col{

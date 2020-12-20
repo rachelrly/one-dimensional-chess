@@ -6,7 +6,9 @@ import { GameContext } from '../../contexts/GameContext';
 import ReviewGame from './ReviewGame';
 
 function GameWrapper() {
+  /*This componenet controls the contidional rendering for the board and review*/
   const { setPlaying, playing } = useContext(GameContext);
+
   return (
     <div className='game-wrapper'>
       {playing === true

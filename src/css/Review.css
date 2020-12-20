@@ -29,5 +29,5 @@
 
 .review-icon:focus,
 .review-icon:hover{
-  color: var(--accent-dark);
+  color: var(--accent-mid);
 }

@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
 :root{
-    --dark-gray: #424242;
-    --light-grey: #f1f1f1;
-    --accent-mid: #f2f2f2;
-    --colors-accent-mid: #512da8;
-    --accent-dark: #00d49b;
-    --accent-mid: #35fdd8;  
-    --accent-light: #f9a825;
-    --accent-alert: hsla(342, 100%, 42%, 90%);
+    --bg: #defcec;
+    --accent-dark:#f069aa;
+    --accent-light: #69f06b;
+    --accent-mid:#dd257c;
+    --accent-alert: #FF3D00;
     --white: #fff;
     --black: #000;
 

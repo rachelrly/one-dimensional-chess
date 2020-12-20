@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import GameWrapper from './components/board/GameWrapper';
 import LandingPage from './components/landing-page/LandingPage';
 import { GameContext } from './contexts/GameContext';

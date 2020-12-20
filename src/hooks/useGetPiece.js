@@ -26,9 +26,9 @@ function useGetPiece(id) {
             return <Piece {...currentPiece} icon={GiChessKnight} classes={`${currentPiece.name}`} />;
         case 'pawn':
             return <Piece {...currentPiece} icon={GiChessPawn} classes={`${currentPiece.name}`} />;
+        default: return null;
     }
 
-    return null;
 }
 
 export default useGetPiece;

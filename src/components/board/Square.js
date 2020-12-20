@@ -10,6 +10,11 @@ function Square(props) {
     let piece = useGetPiece(props.id);
     let clickRef = useRef(props.id);
 
+    //make invalid move indicator that
+
+
+
+
     const handleClick = (e) => {
         if (props.id === active) {
             return null;
@@ -67,7 +72,7 @@ function Square(props) {
             onClickCapture={(e) => handleClick(e)}
             tabIndex='0'
             onKeyPress={e => handleKeyPress(e)}
-            className={`${active === props.id ? 'active' : null} square`}
+            className={`${active === props.id ? 'active' : null} ${team} square`}
             id={props.id}>
             {piece}
         </div>

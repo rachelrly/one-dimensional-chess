@@ -1,9 +1,11 @@
 
 export function movePiece(moveFrom, moveTo, piece, board) {
-  //indicates if move is valid for selected piece and current board
+  /*This function checks if move is valid for current piece
+  and if it valid is, handles movement and returns new board*/
   let valid = null;
 
   console.log('sub board', _getSubBoard(moveFrom, moveTo, board))
+
   switch (piece.piece) {
     case 'king':
       valid = _handleKing(moveFrom, moveTo, piece);
@@ -23,15 +25,16 @@ export function movePiece(moveFrom, moveTo, piece, board) {
     case 'pawn':
       valid = _handlePawn(moveFrom, moveTo, piece);
       break;
+    default: valid = false;
   }
 
   if (valid) {
     board[moveTo].currentPiece = piece;
     board[moveFrom].currentPiece = null;
-  }
 
-  if (_isOver(moveTo, board)) {
-    return { board, valid, over: true }
+    if (_isOver(moveTo, board)) {
+      return { board, valid, over: true }
+    }
   }
 
   return { board, valid };
@@ -81,15 +84,12 @@ function _handleRook(moveFrom, moveTo, piece) {
 
 // moves 1 or 2 squares in either direction
 function _handleKing(moveFrom, moveTo, piece) {
-  //how do I add and subtract in board
   return moveTo === moveFrom + 1 ||
     moveTo === moveFrom + 2 ||
     moveTo === moveFrom - 1 ||
     moveTo === moveFrom - 2
     ? true
     : false;
-
-
 }
 
 //combined moves of rook and bishop
@@ -113,7 +113,7 @@ function _isOver(moveTo, board) {
 }
 
 function _getSubBoard(moveFrom, moveTo, board, limit = null) {
-
+  /*this function gets a subsection of the board to check if it is */
 
   //check piece at moveTo
   //do a for loop

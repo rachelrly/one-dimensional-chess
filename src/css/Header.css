@@ -12,6 +12,8 @@ header{
 h1{
     padding: var(--spacer-sm) 0;
     text-align: center;
+    font-size: 8vw;
+    letter-spacing: var(--spacer-tiny);
 }
 
 .play-button-wrapper{
@@ -28,12 +30,12 @@ h1{
 .play-button-wrapper button:first-of-type:focus,
 .play-button-wrapper button:first-of-type:hover{
     background-color: var(--white);
-    color: var(--accent-dark)
+    color: var(--accent-mid);
 }
 
 
 .play-button-wrapper button:first-of-type{
-    background-color: var(--accent-dark);
+    background-color: var(--accent-mid);
     border-right: 0;
 }
 
@@ -248,3 +250,8 @@ h1{
     animation-iteration-count: infinite;
 }
 
+@media all and (min-width: 700px){
+    h1{
+        font-size: 6vw;
+    }
+}
