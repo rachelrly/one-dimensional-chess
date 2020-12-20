@@ -63,13 +63,15 @@
 }
 
 .square.one:focus{
-    outline: 2px solid var(--accent-light);
+    outline: 1px solid var(--accent-light);
+    border: 1px solid var(--accent-light);
     z-index: 1;
 }
 
 .square.two:focus{
-    outline: 2px solid var(--accent-dark);
+    outline: 1px solid var(--accent-dark);
     z-index: 1;
+    border: 1px solid var(--accent-dark);
 }
 
 .square:nth-child(odd){
@@ -115,11 +117,13 @@
 .active.one{
     outline:3px solid var(--accent-dark);
     z-index: 6 !important;
+    border: 1px solid var(--accent-dark);
 }
 
 .active.two{
     outline:3px solid var(--accent-light);
     z-index: 6 !important;
+    border: 1px solid var(--accent-light);
 }
 
 .board-col{

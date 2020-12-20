@@ -59,6 +59,7 @@ button{
     width: var(--square);
     height: var(--square);
     color: var(--black);
+    background-color: var(--white);
     border: 2px solid var(--black);
     padding: 0;
 }
