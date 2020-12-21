@@ -27,7 +27,7 @@ export function movePiece(moveFrom, moveTo, piece, board) {
   }
 
   if (valid && board[moveTo] && board[moveFrom]) {
-    if (_isOver(moveFrom, moveTo, board)) {
+    if (board[moveTo].currentPiece && board[moveTo].currentPiece.type === 'king') {
       return { board, valid, over: true }
     }
     board[moveTo].currentPiece = piece;
@@ -127,17 +127,3 @@ function _handleBishop(moveFrom, moveTo, piece, board) {
 
 }
 
-function _isOver(moveFrom, moveTo, board) {
-
-  if (moveTo > moveFrom) {
-    return board[moveTo - 1].piece === 'king'
-      ? board[moveTo - 1].team
-      : null
-  }
-  else {
-    return board[moveTo].piece === 'king'
-      ? board[moveTo].team
-      : null
-  }
-
-}

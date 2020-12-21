@@ -12,6 +12,14 @@
   color: var(--black);
   padding: var(--spacer-sm);
   text-align: center;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  font-family: sans-serif;
 }
 
 .instructions-wrapper button{

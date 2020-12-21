@@ -13,7 +13,12 @@ h1{
     padding: var(--spacer-sm) 0;
     text-align: center;
     font-size: 8vw;
+    font-family: var(--font);
     letter-spacing: var(--spacer-tiny);
+}
+
+h2{
+    font-family: var(--font);
 }
 
 .play-button-wrapper{
@@ -36,6 +41,7 @@ h1{
 
 .play-button-wrapper button:first-of-type{
     background-color: var(--accent-mid);
+    color: var(--white);
     border-right: 0;
 }
 

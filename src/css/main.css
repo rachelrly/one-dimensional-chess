@@ -25,7 +25,7 @@ main{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    font-family: var(--font);
+    
     background-color: var(--white);
     
 }

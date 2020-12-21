@@ -66,13 +66,13 @@ switch other to board-col-one
 }
 
 .square.one:focus{
-    outline: 1px solid var(--accent-light);
+    outline: 2px solid var(--accent-light);
     border: 1px solid var(--accent-light);
     z-index: 1;
 }
 
 .square.two:focus{
-    outline: 1px solid var(--accent-dark);
+    outline: 2px solid var(--accent-dark);
     z-index: 1;
     border: 1px solid var(--accent-dark);
 }
@@ -123,14 +123,14 @@ switch other to board-col-one
 }
 
 .active.one{
-    outline:3px solid var(--accent-light) !important;
+    outline:4px solid var(--accent-light) !important;
     z-index: 6 ;
     border: 1px solid var(--accent-light);
     position: relative;
 }
 
 .active.two{
-    outline:3px solid var(--accent-dark)!important;
+    outline:4px solid var(--accent-dark)!important;
     z-index: 6 ;
     border: 1px solid var(--accent-dark);
     position: relative;

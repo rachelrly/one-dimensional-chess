@@ -2,10 +2,9 @@
 
 :root{
     --bg: #defcec;
-    --accent-dark:#f069aa;
-    --accent-light: #69f06b;
-    --accent-mid:#dd257c;
-    --accent-alert: #FF3D00;
+    --accent-dark:#302bb4;
+    --accent-light:#afb42b;
+    --accent-mid:#302bb4;
     --white: #fff;
     --black: #000;
 
@@ -24,13 +23,6 @@
     }
 
 }
-
-/* @media all and (min-width: 450px){
-    :root{
-        --square: calc(100vw / 20);
-    }
-
-} */
 
 @media all and (min-width: 800px){
     :root{
