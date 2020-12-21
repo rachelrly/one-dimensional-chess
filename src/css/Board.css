@@ -113,13 +113,13 @@ switch other to board-col-one
 }
 
 .bishop{
-    height: calc(var(--square) - 5px);
+    height: calc(var(--square) - 8px);
     position: relative;
-    top: 2px;
+    top: 4px;
 }
 .queen{
     position: relative;
-    top: 3px;
+    top: 6px;
 }
 
 .active.one{

@@ -27,7 +27,7 @@ export function movePiece(moveFrom, moveTo, piece, board) {
   }
 
   if (valid && board[moveTo] && board[moveFrom]) {
-    if (_isOver(moveTo, board)) {
+    if (_isOver(moveFrom, moveTo, board)) {
       return { board, valid, over: true }
     }
     board[moveTo].currentPiece = piece;
@@ -78,25 +78,16 @@ function _handleKnight(moveFrom, moveTo) {
 //moves the same as in standard chess
 function _handleRook(moveFrom, moveTo, piece, board) {
   if (moveTo > moveFrom) {
-    for (let i = moveFrom + 1; i < moveTo - 1; i++) {
-      if (board[i].currentPiece) {
-        return false;
-      }
-    }
-    return true;
+    let b = board.slice(moveFrom + 1, moveTo);
+    return b.find(b => b.currentPiece) ? false : true;
   }
 
-  else if (moveFrom > moveTo) {
-    for (let i = moveTo + 1; i < moveFrom - 1; i++) {
-      if (board[i].currentPiece) {
-        return false;
-      }
-    }
-    return true;
-  }
+  else {
+    let b = board.slice(moveTo, moveFrom);
+    return b.find(b => b.currentPiece) ? false : true;
 
+  }
 }
-
 
 // moves 1 or 2 squares in either direction
 function _handleKing(moveFrom, moveTo, piece, board) {
@@ -127,83 +118,48 @@ function _handleBishop(moveFrom, moveTo, piece, board) {
   if (num % 2 !== 0) {
     return false;
   }
+  // if (moveTo > moveFrom) {
+  //   console.log('MOVING UP BOARD from', moveFrom, 'to', moveTo)
+  //   for (let i = moveFrom + 1; i < moveTo - 2; i + 2) {
+  //     if (board[i].currentPiece) {
+  //       return false;
+
+  //     }
+
+  //     continue;
+
+  //   }
+  //   return true;
+  // }
+
+  // else if (moveFrom > moveTo) {
+  //   console.log('MOVING DOWN BOARD from', moveFrom, 'to', moveTo)
+  //   for (let i = moveTo + 1; i < moveFrom - 2; i + 2) {
+  //     if (board[i].currentPiece) {
+  //       return false
+  //     }
+  //     continue;
+
+  //   }
+  //   return true;
+  // }
+
+
+  return true;
+
+}
+
+function _isOver(moveFrom, moveTo, board) {
+
   if (moveTo > moveFrom) {
-    console.log('MOVING UP BOARD from', moveFrom, 'to', moveTo)
-    for (let i = moveFrom + 1; i < moveTo - 2; i + 2) {
-      if (board[i].currentPiece) {
-        return false;
-
-      }
-
-      continue;
-
-    }
-    return true;
+    return board[moveTo - 1].piece === 'king'
+      ? board[moveTo - 1].team
+      : null
+  }
+  else {
+    return board[moveTo].piece === 'king'
+      ? board[moveTo].team
+      : null
   }
 
-  else if (moveFrom > moveTo) {
-    console.log('MOVING DOWN BOARD from', moveFrom, 'to', moveTo)
-    for (let i = moveTo + 1; i < moveFrom - 2; i + 2) {
-      if (board[i].currentPiece) {
-        return false
-      }
-      continue;
-
-    }
-    return true;
-  }
-
-
-
-
 }
-
-function _isOver(moveTo, board) {
-  return board[moveTo - 1].piece === 'king'
-    ? board[moveTo - 1].team
-    : null
-}
-
-
-// function _isPieceBetween(moveFrom, moveTo, piece, board) {
-//   console.log('is piece between ran ', arr, 'filter:', filter)
-
-//   if (piece.type !== 'rook') {
-
-
-//   }
-
-//   if (filter && arr.length < 2) {
-//     return false;
-//   }
-
-//   console.log('started for loop')
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i].currentPiece) {
-//       if (arr[i].currentPiece.id === piece.id) {
-//         continue;
-//       }
-
-//       moveFrom % 2 === moveTo % 2
-//       console.log('HAS PIECE', arr[i].currentPiece)
-//       if (filter === true) {
-//         console.log('HAS PIECE IS FILTERED')
-//         if (i % 2 == 0) {
-//           console.log(i, i % 2)
-//           console.log('RETURED FROM MOD == 0')
-//           return true;
-//         }
-//         continue;
-//       }
-//       else {
-//         return true;
-//       }
-//     }
-//     else {
-//       continue;
-//     }
-//   }
-//   console.log('RETURNING FALSE, NO PIECES', filter)
-//   return false;
-
-// }

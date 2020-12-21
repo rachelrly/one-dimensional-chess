@@ -13,6 +13,10 @@ export function GameContextProvider({ children }) {
 
   let focus = useGetFocus(team, board);
 
+  if (!active && !focus) {
+    setPlaying('review')
+  }
+
   if (!active && focus) {
     setActive(focus);
   }
