@@ -12,7 +12,7 @@ export function movePiece(moveFrom, moveTo, piece, board) {
       valid = _handleQueen(moveFrom, moveTo, piece, board);
       break;
     case 'rook':
-      valid = _handleRook(moveFrom, moveTo, piece, board);
+      valid = _handleRook(moveFrom, moveTo, board);
       break;
     case 'bishop':
       valid = _handleBishop(moveFrom, moveTo, piece, board);
@@ -76,16 +76,14 @@ function _handleKnight(moveFrom, moveTo) {
 }
 
 //moves the same as in standard chess
-function _handleRook(moveFrom, moveTo, piece, board) {
+function _handleRook(moveFrom, moveTo, board) {
   if (moveTo > moveFrom) {
     let b = board.slice(moveFrom + 1, moveTo);
     return b.find(b => b.currentPiece) ? false : true;
   }
-
   else {
     let b = board.slice(moveTo, moveFrom);
     return b.find(b => b.currentPiece) ? false : true;
-
   }
 }
 
@@ -118,34 +116,14 @@ function _handleBishop(moveFrom, moveTo, piece, board) {
   if (num % 2 !== 0) {
     return false;
   }
-  // if (moveTo > moveFrom) {
-  //   console.log('MOVING UP BOARD from', moveFrom, 'to', moveTo)
-  //   for (let i = moveFrom + 1; i < moveTo - 2; i + 2) {
-  //     if (board[i].currentPiece) {
-  //       return false;
-
-  //     }
-
-  //     continue;
-
-  //   }
-  //   return true;
-  // }
-
-  // else if (moveFrom > moveTo) {
-  //   console.log('MOVING DOWN BOARD from', moveFrom, 'to', moveTo)
-  //   for (let i = moveTo + 1; i < moveFrom - 2; i + 2) {
-  //     if (board[i].currentPiece) {
-  //       return false
-  //     }
-  //     continue;
-
-  //   }
-  //   return true;
-  // }
-
-
-  return true;
+  if (moveTo > moveFrom) {
+    let b = board.slice(moveFrom + 1, moveTo);
+    return b.find(b => b.currentPiece && b.pos % 2 !== moveFrom % 2) ? false : true;
+  }
+  else {
+    let b = board.slice(moveTo + 1, moveFrom);
+    return b.find(b => b.currentPiece && b.pos % 2 !== moveFrom % 2) ? false : true;
+  }
 
 }
 
