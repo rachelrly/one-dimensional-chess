@@ -13,7 +13,7 @@ function Board() {
 
     return (
         <section>
-            <div className={`board ${width > height && width > 800 ? 'board-row' : `board-col-${team}`}`}>
+            <div className={`board ${width > height && width > 800 ? 'board-row' : `board-col`}`}>
                 {board.map((squ) => {
                     return <Square key={squ.pos} id={squ.pos} />
                 })}

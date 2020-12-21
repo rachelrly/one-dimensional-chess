@@ -4,23 +4,21 @@ export function movePiece(moveFrom, moveTo, piece, board) {
   and if it valid is, handles movement and returns new board*/
   let valid = null;
 
-  console.log('sub board', _getSubBoard(moveFrom, moveTo, board))
-
   switch (piece.piece) {
     case 'king':
-      valid = _handleKing(moveFrom, moveTo, piece);
+      valid = _handleKing(moveFrom, moveTo, piece, board);
       break;
     case 'queen':
-      valid = _handleQueen(moveFrom, moveTo, piece);
+      valid = _handleQueen(moveFrom, moveTo, piece, board);
       break;
     case 'rook':
-      valid = _handleRook(moveFrom, moveTo, piece);
+      valid = _handleRook(moveFrom, moveTo, piece, board);
       break;
     case 'bishop':
-      valid = _handleBishop(moveFrom, moveTo, piece);
+      valid = _handleBishop(moveFrom, moveTo, piece, board);
       break;
     case 'knight':
-      valid = _handleKnight(moveFrom, moveTo, piece);
+      valid = _handleKnight(moveFrom, moveTo);
       break;
     case 'pawn':
       valid = _handlePawn(moveFrom, moveTo, piece);
@@ -28,13 +26,14 @@ export function movePiece(moveFrom, moveTo, piece, board) {
     default: valid = false;
   }
 
-  if (valid) {
-    board[moveTo].currentPiece = piece;
-    board[moveFrom].currentPiece = null;
-
+  if (valid && board[moveTo] && board[moveFrom]) {
     if (_isOver(moveTo, board)) {
       return { board, valid, over: true }
     }
+    board[moveTo].currentPiece = piece;
+    board[moveFrom].currentPiece = null;
+
+
   }
 
   return { board, valid };
@@ -44,14 +43,17 @@ export function movePiece(moveFrom, moveTo, piece, board) {
 //moves 1 after touched
 function _handlePawn(moveFrom, moveTo, piece) {
   if (!piece.touched) {
-    piece.touched = true;
-
+    let bool = null;
     if (piece.team === 'one') {
-      return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
+      bool = moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
     }
     else {
-      return moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
+      bool = moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
     }
+    if (bool) {
+      piece.touched = true;
+    }
+    return bool;
   }
   else {
     if (piece.team === 'one') {
@@ -64,7 +66,7 @@ function _handlePawn(moveFrom, moveTo, piece) {
 }
 
 //moves two or three squares, jumping over others
-function _handleKnight(moveFrom, moveTo, piece) {
+function _handleKnight(moveFrom, moveTo) {
   let num = moveTo - moveFrom;
   return moveTo - moveFrom === 2 ||
     moveTo - moveFrom === 3 ||
@@ -74,35 +76,85 @@ function _handleKnight(moveFrom, moveTo, piece) {
 }
 
 //moves the same as in standard chess
-function _handleRook(moveFrom, moveTo, piece) {
+function _handleRook(moveFrom, moveTo, piece, board) {
+  if (moveTo > moveFrom) {
+    for (let i = moveFrom + 1; i < moveTo - 1; i++) {
+      if (board[i].currentPiece) {
+        return false;
+      }
+    }
+    return true;
+  }
 
-  //check for pieces in between
-  return true;
+  else if (moveFrom > moveTo) {
+    for (let i = moveTo + 1; i < moveFrom - 1; i++) {
+      if (board[i].currentPiece) {
+        return false;
+      }
+    }
+    return true;
+  }
 
 }
 
 
 // moves 1 or 2 squares in either direction
-function _handleKing(moveFrom, moveTo, piece) {
-  return moveTo === moveFrom + 1 ||
-    moveTo === moveFrom + 2 ||
-    moveTo === moveFrom - 1 ||
-    moveTo === moveFrom - 2
-    ? true
-    : false;
+function _handleKing(moveFrom, moveTo, piece, board) {
+  if (moveTo === moveFrom + 1 || moveTo === moveFrom - 1) {
+    return true;
+  }
+
+  else if (moveTo === moveFrom + 2 || moveTo === moveFrom - 2) {
+    let mid = moveTo > moveFrom ? moveFrom + 1 : moveFrom - 1;
+    return board[mid - 1].currentPiece ? false : true;
+
+  }
+
+  else {
+    return false;
+  }
 }
 
 //combined moves of rook and bishop
-function _handleQueen(moveFrom, moveTo, piece) {
-  //or rook
-  return _handleBishop(moveFrom, moveTo, piece) ? true : false;
+function _handleQueen(moveFrom, moveTo, piece, board) {
+  return _handleBishop(moveFrom, moveTo, piece, board) || _handleRook(moveFrom, moveTo, board) ? true : false;
 }
 
 //moves to squares of the same color, jumping over others
-function _handleBishop(moveFrom, moveTo, piece) {
-  //check if there are squares between
+function _handleBishop(moveFrom, moveTo, piece, board) {
+  //check if it is valid move
   let num = piece.team === 'one' ? moveTo - moveFrom : moveFrom - moveTo;
-  return num % 2 === 0 ? true : false;
+  if (num % 2 !== 0) {
+    return false;
+  }
+  if (moveTo > moveFrom) {
+    console.log('MOVING UP BOARD from', moveFrom, 'to', moveTo)
+    for (let i = moveFrom + 1; i < moveTo - 2; i + 2) {
+      if (board[i].currentPiece) {
+        return false;
+
+      }
+
+      continue;
+
+    }
+    return true;
+  }
+
+  else if (moveFrom > moveTo) {
+    console.log('MOVING DOWN BOARD from', moveFrom, 'to', moveTo)
+    for (let i = moveTo + 1; i < moveFrom - 2; i + 2) {
+      if (board[i].currentPiece) {
+        return false
+      }
+      continue;
+
+    }
+    return true;
+  }
+
+
+
 
 }
 
@@ -112,25 +164,46 @@ function _isOver(moveTo, board) {
     : null
 }
 
-function _getSubBoard(moveFrom, moveTo, board, limit = null) {
-  /*this function gets a subsection of the board to check if it is */
 
-  //check piece at moveTo
-  //do a for loop
-  //reversed based on moveFrom > moveTo
-  //look at piece's team 
+// function _isPieceBetween(moveFrom, moveTo, piece, board) {
+//   console.log('is piece between ran ', arr, 'filter:', filter)
 
-  return moveFrom > moveTo
-    ? board.slice(moveTo, moveFrom)
-    : board.slice(moveFrom + 1, moveTo + 1);
-
-}
-
-function _isPieceBetween() {
-  //split board
-  //map through sub-board
+//   if (piece.type !== 'rook') {
 
 
+//   }
 
+//   if (filter && arr.length < 2) {
+//     return false;
+//   }
 
-}
+//   console.log('started for loop')
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].currentPiece) {
+//       if (arr[i].currentPiece.id === piece.id) {
+//         continue;
+//       }
+
+//       moveFrom % 2 === moveTo % 2
+//       console.log('HAS PIECE', arr[i].currentPiece)
+//       if (filter === true) {
+//         console.log('HAS PIECE IS FILTERED')
+//         if (i % 2 == 0) {
+//           console.log(i, i % 2)
+//           console.log('RETURED FROM MOD == 0')
+//           return true;
+//         }
+//         continue;
+//       }
+//       else {
+//         return true;
+//       }
+//     }
+//     else {
+//       continue;
+//     }
+//   }
+//   console.log('RETURNING FALSE, NO PIECES', filter)
+//   return false;
+
+// }

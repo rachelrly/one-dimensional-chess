@@ -16,7 +16,7 @@
 
 .instructions-wrapper button{
   justify-self: flex-end;
-  background: var(--bg);
+  background: var(--white);
 }
 
 

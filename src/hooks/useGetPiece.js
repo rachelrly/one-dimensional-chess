@@ -17,7 +17,7 @@ function useGetPiece(id) {
         case 'king':
             return <Piece {...currentPiece} icon={GiChessKing} classes={`${currentPiece.name}`} />;
         case 'queen':
-            return <Piece {...currentPiece} icon={GiQueenCrown} classes={`${currentPiece.name}`} />;
+            return <Piece {...currentPiece} icon={GiQueenCrown} classes={`queen ${currentPiece.name}`} />;
         case 'rook':
             return <Piece {...currentPiece} icon={GiChessRook} classes={`rook ${currentPiece.name}`} />;
         case 'bishop':
