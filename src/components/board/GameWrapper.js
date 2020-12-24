@@ -1,16 +1,18 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import Board from './Board';
 import Instructions from './Instructions';
 import { IoMdArrowBack } from 'react-icons/io';
 import { GameContext } from '../../contexts/GameContext';
 import ReviewGame from './ReviewGame';
+import startingBoard from '../../starting-board.json';
 
 function GameWrapper() {
   /*This componenet controls the contidional rendering for the board and review*/
-  const { setPlaying, playing } = useContext(GameContext);
+  const { setPlaying, playing, setBoard } = useContext(GameContext);
 
   return (
     <div className='game-wrapper'>
+      <button onClick={() => setBoard(startingBoard)}>CLICK</button>
       {playing === true
         ? <Fragment>
           <div className='back-button-wrapper'>

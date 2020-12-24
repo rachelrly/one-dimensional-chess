@@ -2,18 +2,14 @@ import React, { useContext, useRef } from 'react';
 import useGetPiece from '../../hooks/useGetPiece';
 import { GameContext } from '../../contexts/GameContext';
 import { movePiece } from '../../utils/utils';
+import StartingBoard from '../../starting-board.json';
 
 
 function Square(props) {
-    const { team, setTeam, setActive, active, board, setBoard, setPlaying } = useContext(GameContext);
+    const { team, setTeam, setActive, active, board, setBoard, setPlaying, resetBoard } = useContext(GameContext);
     const activePiece = board.find(squ => squ.pos === active);
     let piece = useGetPiece(props.id);
     let clickRef = useRef(props.id);
-
-    //make invalid move indicator that
-
-
-
 
     const handleClick = (e) => {
         if (props.id === active) {
@@ -31,11 +27,12 @@ function Square(props) {
             let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
 
             if (res.valid) {
-                setBoard(res.board);
                 if (res.over) {
+                    setBoard(StartingBoard)
                     setPlaying('review');
                     return;
                 }
+                setBoard(res.board);
                 const newTeam = team === 'one' ? 'two' : 'one';
                 setTeam(newTeam);
                 setActive(null);
@@ -45,11 +42,12 @@ function Square(props) {
         else if (!piece && active) {
             let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
             if (res.valid) {
-                setBoard(res.board);
                 if (res.over) {
+                    setBoard(StartingBoard);
                     setPlaying('review');
                     return;
                 }
+                setBoard(res.board);
                 const newTeam = team === 'one' ? 'two' : 'one';
                 setTeam(newTeam);
                 setActive(null);

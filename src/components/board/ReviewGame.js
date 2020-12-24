@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { GameContext } from '../../contexts/GameContext';
 import { MdReplay, MdClose } from 'react-icons/md';
 import { GiChessKing } from 'react-icons/gi';
 import '../../css/Review.css';
 
 function ReviewGame() {
-  const { team, resetBoard, setPlaying } = useContext(GameContext);
+  const { team, setPlaying, resetGame } = useContext(GameContext);
+
+  useEffect(() => {
+    resetGame();
+  }, []);
 
   const handleReplay = () => {
-    resetBoard();
     setPlaying(true);
   }
 
   const handleExit = () => {
-    resetBoard();
     setPlaying(false);
   }
 

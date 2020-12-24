@@ -27,13 +27,12 @@ export function movePiece(moveFrom, moveTo, piece, board) {
   }
 
   if (valid && board[moveTo] && board[moveFrom]) {
-    if (board[moveTo].currentPiece && board[moveTo].currentPiece.type === 'king') {
+    if (board[moveTo].currentPiece && board[moveTo].currentPiece.piece === 'king') {
+      console.log('SENDING OVER RESPONSEEEEEE!')
       return { board, valid, over: true }
     }
     board[moveTo].currentPiece = piece;
     board[moveFrom].currentPiece = null;
-
-
   }
 
   return { board, valid };
@@ -82,7 +81,7 @@ function _handleRook(moveFrom, moveTo, board) {
     return b.find(b => b.currentPiece) ? false : true;
   }
   else {
-    let b = board.slice(moveTo, moveFrom);
+    let b = board.slice(moveTo + 1, moveFrom);
     return b.find(b => b.currentPiece) ? false : true;
   }
 }

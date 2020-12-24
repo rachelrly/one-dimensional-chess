@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../../css/Board.css';
 import Square from './Square';
 import { GameContext } from '../../contexts/GameContext';
@@ -8,8 +8,12 @@ function Board() {
     /*This component mapps the squares according to the board and checks 
     the viewport height and width for orientation*/
 
-    let { board, team } = useContext(GameContext);
+    let { board, resetGame } = useContext(GameContext);
     const [width, height] = useWindowSize();
+
+    useEffect(() => {
+        return () => resetGame();
+    }, [])
 
     return (
         <section>
