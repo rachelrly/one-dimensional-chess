@@ -8,6 +8,10 @@ export function useGetPieceInstructions(id) {
 
   const { currentPiece } = board.find(pos => pos.pos === id);
 
+  if (!currentPiece) {
+    return null;
+  }
+
   switch (currentPiece.piece) {
     case 'king':
       return 'The King can move one or two squares, but it may not jump over pieces.';

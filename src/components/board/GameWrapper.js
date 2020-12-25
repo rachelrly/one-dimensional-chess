@@ -8,11 +8,10 @@ import startingBoard from '../../starting-board.json';
 
 function GameWrapper() {
   /*This componenet controls the contidional rendering for the board and review*/
-  const { setPlaying, playing, setBoard } = useContext(GameContext);
+  const { setPlaying, playing } = useContext(GameContext);
 
   return (
     <div className='game-wrapper'>
-      <button onClick={() => setBoard(startingBoard)}>CLICK</button>
       {playing === true
         ? <Fragment>
           <div className='back-button-wrapper'>

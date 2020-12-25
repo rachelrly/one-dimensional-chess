@@ -8,12 +8,10 @@ function Board() {
     /*This component mapps the squares according to the board and checks 
     the viewport height and width for orientation*/
 
-    let { board, resetGame } = useContext(GameContext);
+    let { board } = useContext(GameContext);
     const [width, height] = useWindowSize();
 
-    useEffect(() => {
-        return () => resetGame();
-    }, [])
+    useEffect(() => { }, [board])
 
     return (
         <section>

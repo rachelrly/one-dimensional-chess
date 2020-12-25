@@ -1,46 +1,11 @@
 
-export function movePiece(moveFrom, moveTo, piece, board) {
-  /*This function checks if move is valid for current piece
-  and if it valid is, handles movement and returns new board*/
-  let valid = null;
-
-  switch (piece.piece) {
-    case 'king':
-      valid = _handleKing(moveFrom, moveTo, piece, board);
-      break;
-    case 'queen':
-      valid = _handleQueen(moveFrom, moveTo, piece, board);
-      break;
-    case 'rook':
-      valid = _handleRook(moveFrom, moveTo, board);
-      break;
-    case 'bishop':
-      valid = _handleBishop(moveFrom, moveTo, piece, board);
-      break;
-    case 'knight':
-      valid = _handleKnight(moveFrom, moveTo);
-      break;
-    case 'pawn':
-      valid = _handlePawn(moveFrom, moveTo, piece);
-      break;
-    default: valid = false;
-  }
-
-  if (valid && board[moveTo] && board[moveFrom]) {
-    if (board[moveTo].currentPiece && board[moveTo].currentPiece.piece === 'king') {
-      console.log('SENDING OVER RESPONSEEEEEE!')
-      return { board, valid, over: true }
-    }
-    board[moveTo].currentPiece = piece;
-    board[moveFrom].currentPiece = null;
-  }
-
-  return { board, valid };
-}
+/* This file has all the helper functions that control validating the movement of each piece.
+These functions are called in the reducer in GameContext. */
 
 //moves 1 or 2 places forward when untouched
 //moves 1 after touched
-function _handlePawn(moveFrom, moveTo, piece) {
+export function handlePawn(moveFrom, moveTo, piece) {
+
   if (!piece.touched) {
     let bool = null;
     if (piece.team === 'one') {
@@ -65,7 +30,7 @@ function _handlePawn(moveFrom, moveTo, piece) {
 }
 
 //moves two or three squares, jumping over others
-function _handleKnight(moveFrom, moveTo) {
+export function handleKnight(moveFrom, moveTo) {
   let num = moveTo - moveFrom;
   return moveTo - moveFrom === 2 ||
     moveTo - moveFrom === 3 ||
@@ -75,7 +40,7 @@ function _handleKnight(moveFrom, moveTo) {
 }
 
 //moves the same as in standard chess
-function _handleRook(moveFrom, moveTo, board) {
+export function handleRook(moveFrom, moveTo, board) {
   if (moveTo > moveFrom) {
     let b = board.slice(moveFrom + 1, moveTo);
     return b.find(b => b.currentPiece) ? false : true;
@@ -87,29 +52,28 @@ function _handleRook(moveFrom, moveTo, board) {
 }
 
 // moves 1 or 2 squares in either direction
-function _handleKing(moveFrom, moveTo, piece, board) {
+export function handleKing(moveFrom, moveTo, board) {
   if (moveTo === moveFrom + 1 || moveTo === moveFrom - 1) {
     return true;
   }
-
   else if (moveTo === moveFrom + 2 || moveTo === moveFrom - 2) {
     let mid = moveTo > moveFrom ? moveFrom + 1 : moveFrom - 1;
     return board[mid - 1].currentPiece ? false : true;
 
   }
-
   else {
     return false;
   }
 }
 
 //combined moves of rook and bishop
-function _handleQueen(moveFrom, moveTo, piece, board) {
-  return _handleBishop(moveFrom, moveTo, piece, board) || _handleRook(moveFrom, moveTo, board) ? true : false;
+export function handleQueen(moveFrom, moveTo, piece, board) {
+  return handleBishop(moveFrom, moveTo, piece, board) || handleRook(moveFrom, moveTo, board) ? true : false;
 }
 
+
 //moves to squares of the same color, jumping over others
-function _handleBishop(moveFrom, moveTo, piece, board) {
+export function handleBishop(moveFrom, moveTo, piece, board) {
   //check if it is valid move
   let num = piece.team === 'one' ? moveTo - moveFrom : moveFrom - moveTo;
   if (num % 2 !== 0) {

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import useGetPiece from '../../hooks/useGetPiece';
 import { GameContext } from '../../contexts/GameContext';
 import { movePiece } from '../../utils/utils';
@@ -6,10 +6,13 @@ import StartingBoard from '../../starting-board.json';
 
 
 function Square(props) {
-    const { team, setTeam, setActive, active, board, setBoard, setPlaying, resetBoard } = useContext(GameContext);
-    const activePiece = board.find(squ => squ.pos === active);
+    const { team, setActive, active, dispatch, board } = useContext(GameContext);
     let piece = useGetPiece(props.id);
     let clickRef = useRef(props.id);
+
+    const activePiece = board.find(squ => squ.pos === active).currentPiece;
+
+    useEffect(() => { }, [active])
 
     const handleClick = (e) => {
         if (props.id === active) {
@@ -20,38 +23,23 @@ function Square(props) {
         }
         //select other piece from team
         if (piece && piece.props.team === team) {
-
+            //if clicked on piece from same team, switch focus
             setActive(Number(clickRef.current.id));
         }
         else if (piece && active && piece.props.team !== team) {
-            let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
+            //if clicked on piece of other piece, validate move
+            dispatch({
+                type: board[active - 1].currentPiece.piece,
+                payload: { moveFrom: active - 1, moveTo: Number(clickRef.current.id) - 1, board, piece: activePiece }
+            });
 
-            if (res.valid) {
-                if (res.over) {
-                    setBoard(StartingBoard)
-                    setPlaying('review');
-                    return;
-                }
-                setBoard(res.board);
-                const newTeam = team === 'one' ? 'two' : 'one';
-                setTeam(newTeam);
-                setActive(null);
-            }
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
-            let res = movePiece(active - 1, Number(clickRef.current.id) - 1, activePiece.currentPiece, board);
-            if (res.valid) {
-                if (res.over) {
-                    setBoard(StartingBoard);
-                    setPlaying('review');
-                    return;
-                }
-                setBoard(res.board);
-                const newTeam = team === 'one' ? 'two' : 'one';
-                setTeam(newTeam);
-                setActive(null);
-            }
+            let test = dispatch({
+                type: board[active - 1].currentPiece.piece,
+                payload: { moveFrom: active - 1, moveTo: Number(clickRef.current.id) - 1, board, piece: activePiece }
+            });
         }
         else {
             return null;
