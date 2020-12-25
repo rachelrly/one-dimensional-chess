@@ -36,7 +36,7 @@ function Square(props) {
         }
         //if there is an active piece selecting an empty square 
         else if (!piece && active) {
-            let test = dispatch({
+            dispatch({
                 type: board[active - 1].currentPiece.piece,
                 payload: { moveFrom: active - 1, moveTo: Number(clickRef.current.id) - 1, board, piece: activePiece }
             });

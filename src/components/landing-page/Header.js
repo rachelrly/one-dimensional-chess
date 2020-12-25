@@ -6,7 +6,7 @@ function Header() {
         <header>
             <h1>One Dimensional Chess</h1>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

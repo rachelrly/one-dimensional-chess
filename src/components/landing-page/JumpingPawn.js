@@ -6,7 +6,7 @@ function JumpingPawn() {
     <div className='jumping-pawn-wrapper'>
       <GiChessPawn id='jumping-pawn' className='jumping-pawn piece' />
     </div>
-  )
-}
+  );
+};
 
-export default JumpingPawn
+export default JumpingPawn;

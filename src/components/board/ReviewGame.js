@@ -5,11 +5,7 @@ import { GiChessKing } from 'react-icons/gi';
 import '../../css/Review.css';
 
 function ReviewGame() {
-  const { team, setPlaying, resetGame } = useContext(GameContext);
-
-  useEffect(() => {
-    resetGame();
-  }, []);
+  const { team, setPlaying } = useContext(GameContext);
 
   const handleReplay = () => {
     setPlaying(true);

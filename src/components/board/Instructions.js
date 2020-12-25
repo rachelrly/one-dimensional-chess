@@ -8,7 +8,6 @@ function Instructions() {
   const { active } = useContext(GameContext);
   const instructions = useGetPieceInstructions(active);
 
-  //rerenders component when active value changes
   useEffect(() => {
   }, [active]);
 
