@@ -1,12 +1,10 @@
 import React, { useState, createContext, useReducer } from 'react';
-import startingBoard from '../starting-board.json';
 import { useGetFocus } from '../hooks/useGetFocus';
 import { handleKing, handleQueen, handlePawn, handleBishop, handleRook, handleKnight } from '../utils/utils';
-
+import startingBoard from '../starting-board.json';
 export const GameContext = createContext();
 
 export function GameContextProvider({ children }) {
-
   const [team, setTeam] = useState('one');
   const [active, setActive] = useState(null);
   const [playing, setPlaying] = useState(false);
@@ -14,18 +12,35 @@ export function GameContextProvider({ children }) {
   const reducer = (state, action) => {
     //generates new board
     const movePiece = (moveFrom, moveTo, piece, board) => {
-      board[moveTo].currentPiece = piece;
-      board[moveFrom].currentPiece = null;
-      return board;
+
+      const newMoveTo = {
+        pos: board[moveTo].pos,
+        currentPiece: piece
+      };
+      const newMoveFrom = {
+        pos: board[moveFrom].pos,
+        currentPiece: null
+      };
+
+      const newBoard = board.map((b, index) => {
+        if (index === moveTo) {
+          return newMoveTo;
+        }
+        else if (index === moveFrom) {
+          return newMoveFrom;
+        }
+        else {
+          return b;
+        }
+      });
+      console.log(board, newBoard)
+      return newBoard;
     }
 
     const { moveFrom, moveTo, board, piece } = action.payload;
 
-    let v = null;
-
     const setNextMove = (bool) => {
-      console.log('SET NEXT MOVE RAN',)
-      if (bool) {
+      if (bool === true) {
         const newTeam = team === 'one' ? 'two' : 'one';
         setTeam(newTeam);
         setActive(null);
@@ -34,35 +49,55 @@ export function GameContextProvider({ children }) {
 
     const isOver = (moveTo, board) => board[moveTo].currentPiece && board[moveTo].currentPiece.piece === 'king' ? 'over' : false;
 
+    let v = null;
+
     switch (action.type) {
       case 'reset':
         return { valid: null, board: startingBoard }
       case 'king':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         //check if move is valid
         v = handleKing(moveFrom, moveTo, board);
         //if game is over, return that otherwise return if move is valid
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       case 'queen':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleQueen(moveFrom, moveTo, piece, board);
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       case 'rook':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleRook(moveFrom, moveTo, board);
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       case 'bishop':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleBishop(moveFrom, moveTo, piece, board);
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       case 'knight':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleKnight(moveFrom, moveTo);
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       case 'pawn':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handlePawn(moveFrom, moveTo, piece);
         setNextMove(v)
-        return { valid: v && isOver ? isOver : v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
+        return { valid: v, board: movePiece(moveFrom, moveTo, piece, board) };
       default:
         setNextMove(v)
         return { valid: false, board };
@@ -76,26 +111,21 @@ export function GameContextProvider({ children }) {
       valid: null
     });
 
-
-  if (state.valid === 'over') {
-    //reset board
-    dispatch({ type: 'reset' });
-    setPlaying('review');
-    setActive(null);
-    setTeam('one');
-  }
-
   //gets and sets focus for piece on the board
   let focus = useGetFocus(team, state.board);
-
-  if (!active && !focus) {
-    setPlaying('review')
-  }
 
   if (!active && focus) {
     setActive(focus);
   }
 
+  if (!active && !focus) {
+    setPlaying('review')
+  }
+
+  if (state.valid === 'over' && playing !== 'review') {
+    setPlaying('review')
+  }
+  console.log(state)
   const value = { playing, board: state.board, valid: state.valid, active, team, dispatch, setPlaying, setActive, setTeam };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>

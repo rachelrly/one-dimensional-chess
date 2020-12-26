@@ -1,8 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import useGetPiece from '../../hooks/useGetPiece';
 import { GameContext } from '../../contexts/GameContext';
-import { movePiece } from '../../utils/utils';
-import StartingBoard from '../../starting-board.json';
 
 
 function Square(props) {
@@ -12,7 +10,7 @@ function Square(props) {
 
     const activePiece = board.find(squ => squ.pos === active).currentPiece;
 
-    useEffect(() => { }, [active])
+    useEffect(() => { }, [active, board])
 
     const handleClick = (e) => {
         if (props.id === active) {
