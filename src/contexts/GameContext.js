@@ -9,9 +9,7 @@ export function GameContextProvider({ children }) {
   const [playing, setPlaying] = useState(false);
 
   const reducer = (state, action) => {
-    //generates new board
     const movePiece = (moveFrom, moveTo, piece, board) => {
-
       const newMoveTo = {
         pos: board[moveTo].pos,
         currentPiece: { ...piece, touched: true }
@@ -37,7 +35,7 @@ export function GameContextProvider({ children }) {
 
     const { moveFrom, moveTo, board, piece } = action.payload;
 
-    const isOver = (moveTo, board) => board[moveTo].currentPiece && board[moveTo].currentPiece.piece === 'king' ? 'over' : false;
+    const isOver = (moveTo, board) => board[moveTo].currentPiece && board[moveTo].currentPiece.piece === 'king';
 
     let v = null;
     const { team } = state;
@@ -46,68 +44,50 @@ export function GameContextProvider({ children }) {
 
     switch (action.type) {
       case 'reset':
-        //reset team information here
+        //resets board, team, and valid to starting position
         return { valid: null, board: startingBoard, team: 'one' }
       case 'king':
         //check if move is valid
         v = handleKing(moveFrom, moveTo, board);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       case 'queen':
         v = handleQueen(moveFrom, moveTo, piece, board);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       case 'rook':
         v = handleRook(moveFrom, moveTo, board);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       case 'bishop':
         v = handleBishop(moveFrom, moveTo, piece, board);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       case 'knight':
         v = handleKnight(moveFrom, moveTo);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       case 'pawn':
         v = handlePawn(moveFrom, moveTo, piece);
-        if (isOver === 'over' && v) {
-          return { valid: 'over', board, team }
-        }
         return {
-          valid: v,
+          valid: v && isOver(moveTo, board) ? 'over' : v,
           board: v ? movePiece(moveFrom, moveTo, piece, board) : board,
-          team: getNewTeam(team)
+          team: v ? getNewTeam(team) : team
         };
       default:
         return { valid: false, board, team };
@@ -136,6 +116,8 @@ export function GameContextProvider({ children }) {
   if (state.valid === 'over' && playing !== 'review') {
     setPlaying('review')
   }
+
+  console.log(state)
 
   const value = { playing, board: state.board, valid: state.valid, active, team: state.team, dispatch, setPlaying, setActive };
 
