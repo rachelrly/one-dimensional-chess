@@ -8,10 +8,8 @@ function Board() {
     /*This component mapps the squares according to the board and checks 
     the viewport height and width for orientation*/
 
-    let { board, dispatch } = useContext(GameContext);
+    let { board } = useContext(GameContext);
     const [width, height] = useWindowSize();
-
-    const payload = { moveFrom: null, moveTo: null, piece: {}, board: [] }
 
     useEffect(() => {
     }, [board])

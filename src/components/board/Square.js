@@ -30,6 +30,7 @@ function Square(props) {
                 type: board[active - 1].currentPiece.piece,
                 payload: { moveFrom: active - 1, moveTo: Number(clickRef.current.id) - 1, board, piece: activePiece }
             });
+            setActive(null);
 
         }
         //if there is an active piece selecting an empty square 
@@ -38,6 +39,7 @@ function Square(props) {
                 type: board[active - 1].currentPiece.piece,
                 payload: { moveFrom: active - 1, moveTo: Number(clickRef.current.id) - 1, board, piece: activePiece }
             });
+            setActive(null);
         }
         else {
             return null;

@@ -6,9 +6,7 @@ These functions are called in the reducer in GameContext. */
 //moves 1 after touched
 export function handlePawn(moveFrom, moveTo, piece) {
   if (!piece.touched) {
-    console.log('NOT TOUCHED RAN')
     if (piece.team === 'one') {
-      console.log('RETURNING FROM P1 NOT TOUCHED', moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false)
       return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
     }
     else {
