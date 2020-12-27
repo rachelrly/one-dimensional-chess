@@ -5,19 +5,15 @@ These functions are called in the reducer in GameContext. */
 //moves 1 or 2 places forward when untouched
 //moves 1 after touched
 export function handlePawn(moveFrom, moveTo, piece) {
-
   if (!piece.touched) {
-    let bool = null;
+    console.log('NOT TOUCHED RAN')
     if (piece.team === 'one') {
-      bool = moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
+      console.log('RETURNING FROM P1 NOT TOUCHED', moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false)
+      return moveTo === moveFrom + 1 || moveTo === moveFrom + 2 ? true : false;
     }
     else {
-      bool = moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
+      return moveTo === moveFrom - 1 || moveTo === moveFrom - 2 ? true : false;
     }
-    if (bool) {
-      piece.touched = true;
-    }
-    return bool;
   }
   else {
     if (piece.team === 'one') {
@@ -29,6 +25,10 @@ export function handlePawn(moveFrom, moveTo, piece) {
   }
 }
 
+
+
+
+
 //moves two or three squares, jumping over others
 export function handleKnight(moveFrom, moveTo) {
   let num = moveTo - moveFrom;
@@ -38,6 +38,9 @@ export function handleKnight(moveFrom, moveTo) {
     moveFrom - moveTo === 2 ? true : false;
 
 }
+
+
+
 
 //moves the same as in standard chess
 export function handleRook(moveFrom, moveTo, board) {
@@ -50,6 +53,9 @@ export function handleRook(moveFrom, moveTo, board) {
     return b.find(b => b.currentPiece) ? false : true;
   }
 }
+
+
+
 
 // moves 1 or 2 squares in either direction
 export function handleKing(moveFrom, moveTo, board) {
@@ -66,10 +72,17 @@ export function handleKing(moveFrom, moveTo, board) {
   }
 }
 
+
+
+
+
 //combined moves of rook and bishop
 export function handleQueen(moveFrom, moveTo, piece, board) {
   return handleBishop(moveFrom, moveTo, piece, board) || handleRook(moveFrom, moveTo, board) ? true : false;
 }
+
+
+
 
 
 //moves to squares of the same color, jumping over others

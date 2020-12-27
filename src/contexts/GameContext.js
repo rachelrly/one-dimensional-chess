@@ -15,7 +15,7 @@ export function GameContextProvider({ children }) {
 
       const newMoveTo = {
         pos: board[moveTo].pos,
-        currentPiece: piece
+        currentPiece: { ...piece, touched: true }
       };
       const newMoveFrom = {
         pos: board[moveFrom].pos,
