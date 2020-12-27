@@ -55,6 +55,9 @@ export function GameContextProvider({ children }) {
         //reset team information here
         return { valid: null, board: startingBoard }
       case 'king':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         //check if move is valid
         v = handleKing(moveFrom, moveTo, board);
         if (isOver === 'over' && v) {
@@ -63,6 +66,9 @@ export function GameContextProvider({ children }) {
         setNextMove(v)
         return { valid: v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
       case 'queen':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleQueen(moveFrom, moveTo, piece, board);
         if (isOver === 'over' && v) {
           return { valid: 'over', board }
@@ -70,6 +76,9 @@ export function GameContextProvider({ children }) {
         setNextMove(v)
         return { valid: v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
       case 'rook':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleRook(moveFrom, moveTo, board);
         if (isOver === 'over' && v) {
           return { valid: 'over', board }
@@ -77,6 +86,9 @@ export function GameContextProvider({ children }) {
         setNextMove(v)
         return { valid: v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
       case 'bishop':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleBishop(moveFrom, moveTo, piece, board);
         if (isOver === 'over' && v) {
           return { valid: 'over', board }
@@ -84,6 +96,9 @@ export function GameContextProvider({ children }) {
         setNextMove(v)
         return { valid: v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
       case 'knight':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handleKnight(moveFrom, moveTo);
         if (isOver === 'over' && v) {
           return { valid: 'over', board }
@@ -91,6 +106,9 @@ export function GameContextProvider({ children }) {
         setNextMove(v)
         return { valid: v, board: v ? movePiece(moveFrom, moveTo, piece, board) : board };
       case 'pawn':
+        if (isOver === 'over') {
+          return { valid: 'over', board }
+        }
         v = handlePawn(moveFrom, moveTo, piece);
         if (isOver === 'over' && v) {
           return { valid: 'over', board }
