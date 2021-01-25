@@ -6,9 +6,7 @@ Play the two-player game [here](https://one-d-chess.vercel.app/).
 
 ## Images
 
-![](screenshots/1d-chess-playing.jpg)
-
-![](screenshots/1d-chess-start.jpg)
+![](screenshots/starting.jpg) ![](screenshots/playing.jpg)
 
 ## How to Play
 
