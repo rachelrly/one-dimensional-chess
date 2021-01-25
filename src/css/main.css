@@ -25,26 +25,11 @@ main{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
+    line-height: var(--line-spacing);
     background-color: var(--white);
     
 }
 
-footer{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: inherit;
-    height: 50px;
-    background-color: var(--accent-mid);
-    color: var(--colors-white);
-    padding: var(--spacer-sm);
-}
-
-footer .icon{
-    color: var(--colors-white);
-    font-size: 30px;
-}
 
 p{
     padding: var(--spacer-sm) 0;
@@ -67,6 +52,10 @@ button:focus,
 button:hover{
     color: var(--accent-mid);
     border: 2px solid var(--accent-mid);
+}
+
+a{
+    color: var(--accent-mid);
 }
 
 section{

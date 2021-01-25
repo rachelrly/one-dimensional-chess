@@ -1,20 +1,20 @@
 # One Dimensional Chess
 
-This is a repository for Rachel Reilly's One Dimensional Chess React App.
+This is a repository for Rachel Reilly's static One Dimensional Chess game. This game was built using React.js and CSS3.
 
 Play the two-player game [here](https://one-d-chess.vercel.app/).
 
 ## Images
 
-![](screenshots/board.png)
+![](screenshots/1d-chess-playing.jpg)
 
-![](screenshots/move.png)
-
-![](screenshots/winner.png)
+![](screenshots/1d-chess-start.jpg)
 
 ## How to Play
 
 This version of one-dimensional chess uses Glimne's rules.
+
+Instructions for how each piece can move are at the top of the screen next to the back button. They can be hidden throughout the game.
 
 ### Opening Setup
 

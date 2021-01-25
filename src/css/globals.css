@@ -8,26 +8,20 @@
     --white: #fff;
     --black: #000;
 
-    --spacer-sm: 0.8rem;
-    --spacer-med: 1rem;
+    --spacer-sm: 1rem;
+    --spacer-med: 1.25rem;
 
-    --square: 50px;
+    --square: 3rem;
 
     --font: 'Playfair Display', serif;
+    --line-spacing: calc(var(--spacer-sm) * 1.4);
 }
 
-@media all and (max-width: 450px){
-    :root{
-        --spacer-sm: 0.9rem;
-        
-    }
-
-}
 
 @media all and (min-width: 800px){
     :root{
-        --square: calc(100vw / 20);
-        --spacer-med: 1.2rem;
+        --square: 4rem;
+        --spacer-med: 1.5rem;
     }
 }
 

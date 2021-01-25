@@ -37,7 +37,7 @@
 
 .board-row{
     flex-direction: row;
-    width: inherit;
+    width: calc(var(--square) * 20);
     height: 100%;
 }
 
@@ -62,8 +62,11 @@ switch other to board-col-one
 .square{
     height: var(--square);
     width: var(--square);
+    min-width: var(--square);
     outline: 0;
 }
+
+
 
 .square.one:focus{
     outline: 2px solid var(--accent-light);

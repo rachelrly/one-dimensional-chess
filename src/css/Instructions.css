@@ -25,6 +25,11 @@ p{
 .instructions-wrapper button{
   justify-self: flex-end;
   background: var(--white);
+  border: 2px solid var(--white);
 }
 
+.instructions-wrapper button:hover,
+.instructions-wrapper button:focus{
+  border: 2px solid var(--white);
+}
 
