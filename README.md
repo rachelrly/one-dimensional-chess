@@ -8,15 +8,83 @@ Play the two-player game [here](https://one-d-chess.vercel.app/).
 
 ![](screenshots/starting.jpg) ![](screenshots/playing.jpg)
 
+## Codebase
+
+### Components
+
+#### board
+
+- Board.js
+- GameWrapper.js
+- Instructions.js (displays moves for selected piece)
+- Piece.js (takes in an icon rendered through custom hook)
+- ReviewGame.js
+- Square.js (renders individual square and wraps piece)
+
+#### landing-page
+
+- About.js
+- Header.js
+- JumpingPawn.js
+- LandingPage.js
+
+### Contexts
+
+#### GameContext.js
+
+This file has both the context instance and a component rendering the context provier that wraps index.js.
+
+The context contains a useReducer() hook that calls JavaScript to validate the movement of each piece. The reducer state includes the current board and current player turn. The dispatch is the name of the piece.
+
+GameContext also houses the state of the currently selected piece.
+
+### Hooks
+
+#### useGetFocus()
+
+This hook gets the first focusable piece of the current player by looping over the board and finding the piece farthest from the player's starting side. It is called in GameContextProvider and sets the active value after a move.
+
+#### useGetPiece()
+
+The SVG icons for each piece are imported and rendered through this hook. It is called from Square.js based on the current board state.
+
+#### useGetPieceInstructions()
+
+Similar to useGetPiece() but renders the instructions for each piece.
+
+#### useWindowSize() (inactive)
+
+Switches the orientation of the board based on aspect ratio.
+
+### Utils
+
+#### utils.js
+
+This file contains functions that control if a move is valid for a given piece. They are called from the reducer in GameContextProvider based on dispatch. All functions take in the board and a moveFrom and moveTo value and return a boolean value.
+
+### CSS
+
+#### globals.css
+
+This file sets up all css vairables for the project
+
+#### main.css
+
+This is primarily composed of element-specific styles
+
+#### Component-specific CSS
+
+- About.css
+- Board.css
+- Header.css
+- Instructions.css
+- Review.css
+
 ## How to Play
 
 This version of one-dimensional chess uses Glimne's rules.
 
 Instructions for how each piece can move are at the top of the screen next to the back button. They can be hidden throughout the game.
-
-### Opening Setup
-
-White King, Queen, Rook, Bishop, Bishop, Knight, Pawn, four empty squares, Black Pawn, Knight, Bishop, Bishop, Rook, Queen, King
 
 ### The Rules
 

@@ -37,7 +37,6 @@
 
 .board-row{
     flex-direction: row;
-    width: calc(var(--square) * 20);
     height: 100%;
 }
 
