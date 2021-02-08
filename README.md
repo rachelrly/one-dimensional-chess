@@ -4,6 +4,8 @@ This is a repository for Rachel Reilly's static One Dimensional Chess game. This
 
 Play the two-player game [here](https://one-d-chess.vercel.app/).
 
+Read my [Medium post](https://rachanastasia.medium.com/usestate-vs-usereducer-9bbfca768f51) about using the useReducer hook in this project!
+
 ## Images
 
 ![](screenshots/starting.jpg) ![](screenshots/playing.jpg)
